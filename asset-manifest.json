@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/fruteria-facturacion-inventario-frontend-react/static/css/main.62cba2af.css",
-    "main.js": "/fruteria-facturacion-inventario-frontend-react/static/js/main.1b780f12.js",
+    "main.js": "/fruteria-facturacion-inventario-frontend-react/static/js/main.86c15de4.js",
     "static/media/casa-campamento.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/casa-campamento.a20ce66aa2468b5b351e.jpg",
     "static/media/apto-terrazas-del-campestre.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/apto-terrazas-del-campestre.b1e8ebea7312e61205d2.jpg",
     "static/media/apto-condominio-la-rivera.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/apto-condominio-la-rivera.33a223a2f9157557f475.jpg",
@@ -24,10 +24,10 @@
     "static/media/casa-villa-mercedes.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/casa-villa-mercedes.65ada82b374a9528b95e.jpg",
     "index.html": "/fruteria-facturacion-inventario-frontend-react/index.html",
     "main.62cba2af.css.map": "/fruteria-facturacion-inventario-frontend-react/static/css/main.62cba2af.css.map",
-    "main.1b780f12.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/main.1b780f12.js.map"
+    "main.86c15de4.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/main.86c15de4.js.map"
   },
   "entrypoints": [
     "static/css/main.62cba2af.css",
-    "static/js/main.1b780f12.js"
+    "static/js/main.86c15de4.js"
   ]
 }
