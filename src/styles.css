@@ -3,7 +3,6 @@
     --dark-color: #212529;
     --main-color: #f38d3a;
     --white-color: #fff;
-    /* --main-color: rgba(var(--bs-info-rgb)); */
 }
 
 *{
@@ -18,7 +17,7 @@ a {
 a svg {
     color: var(--main-color)!important;
 }
-h1,h3,h4,h6 {
+h1,h2,h3,h4,h5,h6 {
     color: var(--main-color)!important;
 }
 span {
@@ -26,6 +25,18 @@ span {
 }
 .icon {
     font-size: 10vmin;
+}
+
+.thead-light {
+    background-color: var(--main-color)!important;
+    color: var(--white-color);
+}
+th {
+    font-size: 3.25vmin !important;
+    text-align: center;
+}
+td {
+    text-align: center;
 }
 
 input {
