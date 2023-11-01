@@ -59,7 +59,7 @@ export const InventarioScreen = () => {
                   <th>Fruta</th>
                   <th>Disponibilidad</th>
                   <th>Ventas</th>
-                  <th>Kilos vendidos</th>
+                  <th>Kilos</th>
                   <th>Total</th>
                 </tr>
               </thead>
@@ -106,7 +106,7 @@ export const InventarioScreen = () => {
                 <tr>
                   <th scope="col">Fruta</th>
                   <th scope="col">Descripción</th>
-                  <th scope="col">Valor (Kilo)</th>
+                  <th scope="col">Valor (K)</th>
                   <th scope="col">Proveedor</th>
                 </tr>
               </thead>
