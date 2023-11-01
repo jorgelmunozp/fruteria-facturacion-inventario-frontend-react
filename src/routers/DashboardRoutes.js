@@ -14,12 +14,12 @@ export const DashboardRoutes = () => {
 
       <div className="container">
         <Routes>
-            <Route path={name + "/Facturacion"} element={<FacturacionScreen name={name} />} />
-            <Route path={name + "/fruteria-facturacion-inventario-frontend-react/Facturacion"} element={<FacturacionScreen />} />
-            <Route path={name + "/Carrito"} element={<CarritoScreen />} />
-            <Route path={name + "/fruteria-facturacion-inventario-frontend-react/Carrito"} element={<CarritoScreen />} />
-            <Route path={name + "/Inventario"} element={<InventarioScreen />} />
-            <Route path={name + "/fruteria-facturacion-inventario-frontend-react/Inventario"} element={<InventarioScreen />} />
+            <Route path={name + "/facturacion"} element={<FacturacionScreen name={name} />} />
+            <Route path={name + "/fruteria-facturacion-inventario-frontend-react/facturacion"} element={<FacturacionScreen />} />
+            <Route path={name + "/carrito"} element={<CarritoScreen />} />
+            <Route path={name + "/fruteria-facturacion-inventario-frontend-react/carrito"} element={<CarritoScreen />} />
+            <Route path={name + "/inventario"} element={<InventarioScreen />} />
+            <Route path={name + "/fruteria-facturacion-inventario-frontend-react/inventario"} element={<InventarioScreen />} />
             <Route path={"/" + name} element={<FacturacionScreen />} />
         </Routes>
       </div>

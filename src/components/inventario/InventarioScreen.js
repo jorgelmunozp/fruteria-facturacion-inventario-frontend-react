@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import queryString from 'query-string'
 import { useForm } from '../../hooks/useForm';
 import { getInmueblesByName } from '../../selectors/getInmueblesByName';
-import { InmuebleCard } from '../inmueble/InmuebleCard';
 
 const urlApiInventario = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/inventario.json';
 const urlApiFrutas = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/frutas.json';
