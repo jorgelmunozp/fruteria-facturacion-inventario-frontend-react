@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/react-inmobiliaria/static/css/main.aca8bec7.css",
+    "main.js": "/react-inmobiliaria/static/js/main.71a0fd1b.js",
+    "static/media/casa-campamento.jpg": "/react-inmobiliaria/static/media/casa-campamento.a20ce66aa2468b5b351e.jpg",
+    "static/media/apto-terrazas-del-campestre.jpg": "/react-inmobiliaria/static/media/apto-terrazas-del-campestre.b1e8ebea7312e61205d2.jpg",
+    "static/media/apto-condominio-la-rivera.jpg": "/react-inmobiliaria/static/media/apto-condominio-la-rivera.33a223a2f9157557f475.jpg",
+    "static/media/casa-ciudad-verde.jpg": "/react-inmobiliaria/static/media/casa-ciudad-verde.5ab8f357954777ff7cac.jpg",
+    "static/media/casa-la-playa.jpg": "/react-inmobiliaria/static/media/casa-la-playa.dc5c95c85680249fe78d.jpg",
+    "static/media/apto-la-estacion.jpg": "/react-inmobiliaria/static/media/apto-la-estacion.5e6db79a4042ff4f29d3.jpg",
+    "static/media/casa-condominio-habitania.jpg": "/react-inmobiliaria/static/media/casa-condominio-habitania.026e4b60b6f7b68ebe8a.jpg",
+    "static/media/apto-llanos-de-calibio.jpg": "/react-inmobiliaria/static/media/apto-llanos-de-calibio.95054e9af047011d9937.jpg",
+    "static/media/casa-portachuelo.jpg": "/react-inmobiliaria/static/media/casa-portachuelo.d334f3f78935ea446a95.jpg",
+    "static/media/apto-torres-del-parque.jpg": "/react-inmobiliaria/static/media/apto-torres-del-parque.406ccb942d3a071e40ee.jpg",
+    "static/media/apto-torres-del-rio.jpg": "/react-inmobiliaria/static/media/apto-torres-del-rio.07f2f44e82fc07afbee9.jpg",
+    "static/media/casa-lomalinda.jpg": "/react-inmobiliaria/static/media/casa-lomalinda.7e28bb508e495c1f3c4f.jpg",
+    "static/media/apto-morinda-vittal.jpg": "/react-inmobiliaria/static/media/apto-morinda-vittal.de79ef9600187576cceb.jpg",
+    "static/media/casa-santa-ines.jpg": "/react-inmobiliaria/static/media/casa-santa-ines.b4a7ad8220f73295da18.jpg",
+    "static/media/apto-moscopan.jpg": "/react-inmobiliaria/static/media/apto-moscopan.9c69901cc71209b53914.jpg",
+    "static/media/casa-antonio-nariño.jpg": "/react-inmobiliaria/static/media/casa-antonio-nariño.d34250dd6ea80a3a4142.jpg",
+    "static/media/apto-versalles.jpg": "/react-inmobiliaria/static/media/apto-versalles.53d4a80399d192bfdcf8.jpg",
+    "static/media/apto-condominio-la-floresta.jpg": "/react-inmobiliaria/static/media/apto-condominio-la-floresta.e93b55aeb17f1e0d6159.jpg",
+    "static/media/casa-conjunto-alcala.jpg": "/react-inmobiliaria/static/media/casa-conjunto-alcala.d74eee19c68fc5de5542.jpg",
+    "static/media/casa-villa-mercedes.jpg": "/react-inmobiliaria/static/media/casa-villa-mercedes.65ada82b374a9528b95e.jpg",
+    "index.html": "/react-inmobiliaria/index.html",
+    "main.aca8bec7.css.map": "/react-inmobiliaria/static/css/main.aca8bec7.css.map",
+    "main.71a0fd1b.js.map": "/react-inmobiliaria/static/js/main.71a0fd1b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aca8bec7.css",
+    "static/js/main.71a0fd1b.js"
+  ]
+}
