@@ -26,11 +26,11 @@ export const Navbar = ({name}) => {
                 <div className="collapse navbar-collapse"  id="navbarContent">
                     <div className="navbar-nav">
                         <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                            to={name+"/Facturacion"}>Facturación</NavLink>
+                            to={name+"/facturacion"}>Facturación</NavLink>
                         <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                            to={name+"/Carrito"}>Carrito</NavLink>
+                            to={name+"/carrito"}>Carrito</NavLink>
                         <NavLink className={ ({ isActive }) => 'nav-item nav-link ' + (isActive ? 'active' : '') }
-                            to={name+"/Inventario"}>Inventario</NavLink>
+                            to={name+"/inventario"}>Inventario</NavLink>
                     </div>
                     <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
                         <ul className="navbar-nav ml-auto">
