@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/status-close-ff3333">
 </p>
 
-* Demo: [Facturación Frutería](https://jorgelmunozp.github.io/fruteria-inventario-frontend-react/)
+* Demo: [Frutería Facturación Inventario Frontend](https://jorgelmunozp.github.io/fruteria-facturacion-inventario-frontend-react/)
 
 ***
 

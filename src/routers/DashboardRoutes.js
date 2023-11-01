@@ -8,7 +8,7 @@ import { InmuebleScreen } from "../components/inmueble/InmuebleScreen";
 // import inventario from '../inventario.json';
 import { InventarioScreen } from "../components/inventario/InventarioScreen";
 
-const name = "react-inmobiliaria";
+const name = "fruteria-facturacion-inventario-frontend-react";
 
 export const DashboardRoutes = () => {
   // console.log(inventario)
