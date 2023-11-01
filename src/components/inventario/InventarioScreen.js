@@ -48,7 +48,7 @@ export const InventarioScreen = () => {
 
   return (
     <>
-      <center><h3>Inventario</h3></center> 
+      <center><h1>Inventario</h1></center> 
       <hr />
       <div className='row'> 
         <div>
@@ -94,6 +94,7 @@ export const InventarioScreen = () => {
             </table>
           </center>
         </div>
+        <hr />
         <div >
           <center>
             <h4>Proveedores</h4>

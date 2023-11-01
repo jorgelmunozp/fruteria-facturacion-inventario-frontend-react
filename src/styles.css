@@ -7,9 +7,8 @@
 }
 
 *{
-    font: 2.5vmin 'Century Gothic', Helvetica, Arial, sans-serif;
+    font: 3.5vmin 'Century Gothic', Helvetica, Arial, sans-serif;
 }
-  
 a { 
     text-decoration: none;
 }
@@ -19,10 +18,7 @@ a {
 a svg {
     color: var(--main-color)!important;
 }
-h1,h3 {
-    color: var(--main-color)!important;
-}
-h6 {
+h1,h3,h4,h6 {
     color: var(--main-color)!important;
 }
 span {

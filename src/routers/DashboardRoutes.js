@@ -15,8 +15,11 @@ export const DashboardRoutes = () => {
       <div className="container">
         <Routes>
             <Route path={name + "/Facturacion"} element={<ApartamentosScreen name={name} />} />
+            <Route path={name + "/fruteria-facturacion-inventario-frontend-react/Facturacion"} element={<ApartamentosScreen name={name} />} />
             <Route path={name + "/Carrito"} element={<CasasScreen />} />
+            <Route path={name + "/fruteria-facturacion-inventario-frontend-react/Carrito"} element={<CasasScreen />} />
             <Route path={name + "/Inventario"} element={<InventarioScreen />} />
+            <Route path={name + "/fruteria-facturacion-inventario-frontend-react/Inventario"} element={<InventarioScreen />} />
             <Route path={"/" + name} element={<ApartamentosScreen />} />
         </Routes>
       </div>

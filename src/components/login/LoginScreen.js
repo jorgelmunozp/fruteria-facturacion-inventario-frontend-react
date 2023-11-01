@@ -30,7 +30,7 @@ export const LoginScreen = () => {
     <div className='container mt-5 text-center'>
       <h1>La Frutería</h1>
       <hr />
-      <h3>Facturación & Inventario</h3>
+      <h4>Facturación | Inventario</h4>
       <h1><CiLemon className='icon'/><CiShop className='icon'/><CiApple className='icon'/></h1>
       <br/>
       <div className="d-grid gap-2 col-4 mx-auto">
