@@ -14,7 +14,7 @@ export const LoginScreen = () => {
 
       const action = {
         type: types.login,
-        payload: { name: 'User' }
+        payload: { name: 'Jorge' }
       }
 
       dispatch(action);
@@ -34,8 +34,8 @@ export const LoginScreen = () => {
       <h1><CiLemon className='icon'/><CiShop className='icon'/><CiApple className='icon'/></h1>
       <br/>
       <div className="d-grid gap-2 col-4 mx-auto">
-        <input type='text' placeholder='Usuario' autoComplete='off'></input>
-        <input type='password' placeholder='Contraseña' autoComplete='off'></input>
+        <input type='text' placeholder='Usuario' autoComplete='off' className='text-center'></input>
+        <input type='password' placeholder='Contraseña' autoComplete='off' className='text-center'></input>
         <button className='btn-login btn btn-lg btn-outline-warning shadow-sm' onClick={ handleLogin }>
           Ingresar
         </button>

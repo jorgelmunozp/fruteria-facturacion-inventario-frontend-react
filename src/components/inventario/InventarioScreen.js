@@ -1,12 +1,141 @@
-import React from 'react'
-// import {inventario} from './inventario.js';
+import React, { useMemo } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import queryString from 'query-string'
+import { useForm } from '../../hooks/useForm';
+import { getInmueblesByName } from '../../selectors/getInmueblesByName';
+import { InmuebleCard } from '../inmueble/InmuebleCard';
+
+const urlApiInventario = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/inventario.json';
+const urlApiFrutas = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/frutas.json';
+let inventario,frutas;
+var fecha = new Date();           //Lee la fecha actual del sistema
+
+const formatterPeso = new Intl.NumberFormat('es-CO', {   //Formato moneda $ pesos Colmbianos
+  style: 'currency',
+  currency: 'COP',
+  minimumFractionDigits: 0
+});
+const formatterMiles = new Intl.NumberFormat('es-CO', {   //Formato miles para cantidades
+  style: 'decimal',
+  minimumFractionDigits: 0
+});
+
+await fetch(urlApiInventario)                       //Leer API tabla INVENTARIO objeto JSON Base de datos
+    .then(response => response.json())
+    .then(data => inventario = data)
+
+await fetch(urlApiFrutas)                          //Leer API tabla FACTURA objeto JSON Base de datos
+    .then(response => response.json())
+    .then(data => frutas = data)
+console.log(frutas)
 
 export const InventarioScreen = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { q = '' } = queryString.parse(location.search);
+
+  const [ formValues,handleInputChange ] = useForm({
+    searchText: q,
+  });
+
+  const { searchText } = formValues;
+  const inmueblesFiltered = useMemo( () => getInmueblesByName(q), [q] );
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    navigate(`?q=${ searchText }`);
+  };
+
   return (
     <>
-        {JSON.parse(inv)}
+      <center><h3>Inventario</h3></center> 
+      <hr />
+      <div className='row'> 
+        <div>
+          <center>
+            <h4>Frutas Disponibles</h4>
+            <hr />
+            <table className='w-75'>
+              <tr>
+                <th>Fruta</th>
+                <th>Disponibilidad</th>
+                <th>Ventas</th>
+                <th>Kilos vendidos</th>
+                <th>Total</th>
+              </tr>
+              <tr>
+                <td>{inventario.manzanas.nombre}</td>
+                <td>{formatterMiles.format(inventario.manzanas.cantidad)}</td>
+                <td>{formatterMiles.format(inventario.manzanas.ventas)}</td>
+                <td>{formatterMiles.format(inventario.manzanas.kilos)}</td>
+                <td>{formatterPeso.format(inventario.manzanas.total)}</td>
+              </tr>
+              <tr>
+                <td>{inventario.bananos.nombre}</td>
+                <td>{formatterMiles.format(inventario.bananos.cantidad)}</td>
+                <td>{formatterMiles.format(inventario.bananos.ventas)}</td>
+                <td>{formatterMiles.format(inventario.bananos.kilos)}</td>
+                <td>{formatterPeso.format(inventario.bananos.total)}</td>
+              </tr>
+              <tr>
+                  <td>{inventario.mangos.nombre}</td>
+                  <td>{formatterMiles.format(inventario.mangos.cantidad)}</td>
+                  <td>{formatterMiles.format(inventario.mangos.ventas)}</td>
+                  <td>{formatterMiles.format(inventario.mangos.kilos)}</td>
+                  <td>{formatterPeso.format(inventario.mangos.total)}</td>
+              </tr>
+              <tr>
+                <td>{inventario.fresas.nombre}</td>
+                <td>{formatterMiles.format(inventario.fresas.cantidad)}</td>
+                <td>{formatterMiles.format(inventario.fresas.ventas)}</td>
+                <td>{formatterMiles.format(inventario.fresas.kilos)}</td>
+                <td>{formatterPeso.format(inventario.fresas.total)}</td>
+              </tr>
+            </table>
+          </center>
+        </div>
+        <div >
+          <center>
+            <h4>Proveedores</h4>
+            <hr />
+            <table className='w-75'>
+              <tr>
+                <th>Fruta</th>
+                <th>Descripción</th>
+                <th>Valor (Kilo)</th>
+                <th>Proveedor</th>
+              </tr>
+              <tr>
+                <td>{frutas.fruta1.nombre}</td>
+                <td>{frutas.fruta1.descripcion}</td>
+                <td>{formatterPeso.format(frutas.fruta1.valorkilo)}</td>
+                <td>{frutas.fruta1.proveedor}</td>
+              </tr>
+              <tr>
+                <td>{frutas.fruta2.nombre}</td>
+                <td>{frutas.fruta2.descripcion}</td>
+                <td>{formatterPeso.format(frutas.fruta2.valorkilo)}</td>
+                <td>{frutas.fruta2.proveedor}</td>
+              </tr>
+              <tr>
+                  <td>{frutas.fruta3.nombre}</td>
+                  <td>{frutas.fruta3.descripcion}</td>
+                  <td>{formatterPeso.format(frutas.fruta3.valorkilo)}</td>
+                  <td>{frutas.fruta3.proveedor}</td>
+              </tr>
+              <tr>
+                <td>{frutas.fruta4.nombre}</td>
+                <td>{frutas.fruta4.descripcion}</td>
+                <td>{formatterPeso.format(frutas.fruta4.valorkilo)}</td>
+                <td>{frutas.fruta4.proveedor}</td>
+              </tr>
+            </table>
+          </center>
+        </div>
+      </div>
     </>
   )
 }
 
-const inv = '[    "inv": {        "manzanas": {          "id": 0,          "nombre": "Manzanas",          "cantidad": 7640,  "ventas": 53,          "kilos": 1214,          "total": 2505870         }       }]';
+
+

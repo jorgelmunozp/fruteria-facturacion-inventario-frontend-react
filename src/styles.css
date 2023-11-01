@@ -36,7 +36,6 @@ input {
     border: 1.5px solid var(--main-color);
     border-radius: 100vmax;
     padding: 1vmin 0 1vmin 0;
-    text-align: center;
 }
 input::placeholder {
     color: var(--lightgray-color);
