@@ -1,6 +1,6 @@
 {
-  "name": "fruteria-inventario-frontend-react",
-  "homepage": "https://jorgelmunozp.github.io/fruteria-inventario-frontend-react/",
+  "name": "fruteria-facturacion-inventario-frontend-react",
+  "homepage": "https://jorgelmunozp.github.io/fruteria-facturacion-inventario-frontend-react/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
