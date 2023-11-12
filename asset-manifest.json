@@ -1,33 +1,13 @@
 {
   "files": {
     "main.css": "/fruteria-facturacion-inventario-frontend-react/static/css/main.a0e786cf.css",
-    "main.js": "/fruteria-facturacion-inventario-frontend-react/static/js/main.3b5c50f3.js",
-    "static/media/casa-campamento.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/casa-campamento.a20ce66aa2468b5b351e.jpg",
-    "static/media/apto-terrazas-del-campestre.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/apto-terrazas-del-campestre.b1e8ebea7312e61205d2.jpg",
-    "static/media/apto-condominio-la-rivera.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/apto-condominio-la-rivera.33a223a2f9157557f475.jpg",
-    "static/media/casa-ciudad-verde.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/casa-ciudad-verde.5ab8f357954777ff7cac.jpg",
-    "static/media/casa-la-playa.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/casa-la-playa.dc5c95c85680249fe78d.jpg",
-    "static/media/apto-la-estacion.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/apto-la-estacion.5e6db79a4042ff4f29d3.jpg",
-    "static/media/casa-condominio-habitania.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/casa-condominio-habitania.026e4b60b6f7b68ebe8a.jpg",
-    "static/media/apto-llanos-de-calibio.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/apto-llanos-de-calibio.95054e9af047011d9937.jpg",
-    "static/media/casa-portachuelo.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/casa-portachuelo.d334f3f78935ea446a95.jpg",
-    "static/media/apto-torres-del-parque.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/apto-torres-del-parque.406ccb942d3a071e40ee.jpg",
-    "static/media/apto-torres-del-rio.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/apto-torres-del-rio.07f2f44e82fc07afbee9.jpg",
-    "static/media/casa-lomalinda.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/casa-lomalinda.7e28bb508e495c1f3c4f.jpg",
-    "static/media/apto-morinda-vittal.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/apto-morinda-vittal.de79ef9600187576cceb.jpg",
-    "static/media/casa-santa-ines.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/casa-santa-ines.b4a7ad8220f73295da18.jpg",
-    "static/media/apto-moscopan.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/apto-moscopan.9c69901cc71209b53914.jpg",
-    "static/media/casa-antonio-nariño.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/casa-antonio-nariño.d34250dd6ea80a3a4142.jpg",
-    "static/media/apto-versalles.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/apto-versalles.53d4a80399d192bfdcf8.jpg",
-    "static/media/apto-condominio-la-floresta.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/apto-condominio-la-floresta.e93b55aeb17f1e0d6159.jpg",
-    "static/media/casa-conjunto-alcala.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/casa-conjunto-alcala.d74eee19c68fc5de5542.jpg",
-    "static/media/casa-villa-mercedes.jpg": "/fruteria-facturacion-inventario-frontend-react/static/media/casa-villa-mercedes.65ada82b374a9528b95e.jpg",
+    "main.js": "/fruteria-facturacion-inventario-frontend-react/static/js/main.918ccd38.js",
     "index.html": "/fruteria-facturacion-inventario-frontend-react/index.html",
     "main.a0e786cf.css.map": "/fruteria-facturacion-inventario-frontend-react/static/css/main.a0e786cf.css.map",
-    "main.3b5c50f3.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/main.3b5c50f3.js.map"
+    "main.918ccd38.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/main.918ccd38.js.map"
   },
   "entrypoints": [
     "static/css/main.a0e786cf.css",
-    "static/js/main.3b5c50f3.js"
+    "static/js/main.918ccd38.js"
   ]
 }
