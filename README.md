@@ -1,4 +1,4 @@
-<h1 align="center"> Frutería Facturación & Inventario  | React Frontend App </h1>
+<h1 align="center"> La Frutería Facturación & Inventario  | React Frontend App </h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/JavaScript-f1e05a">
