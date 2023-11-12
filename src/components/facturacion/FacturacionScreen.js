@@ -1,9 +1,4 @@
-import React, { useMemo } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import queryString from 'query-string'
-import { useForm } from '../../hooks/useForm';
-import { getInmueblesByName } from '../../selectors/getInmueblesByName';
-import { InmuebleCard } from '../inmueble/InmuebleCard';
+import React from 'react';
 
 const urlApiInventario = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/inventario.json';
 const urlApiFrutas = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/frutas.json';
@@ -28,21 +23,6 @@ await fetch(urlApiFrutas)                          //Leer API tabla FACTURA obje
     .then(data => frutas = data)
 
 export const FacturacionScreen = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const { q = '' } = queryString.parse(location.search);
-
-  const [ formValues,handleInputChange ] = useForm({
-    searchText: q,
-  });
-
-  const { searchText } = formValues;
-  const inmueblesFiltered = useMemo( () => getInmueblesByName(q), [q] );
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    navigate(`?q=${ searchText }`);
-  };
 
   return (
     <>

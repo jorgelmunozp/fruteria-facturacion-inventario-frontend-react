@@ -1,8 +1,4 @@
-import React, { useMemo } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import queryString from 'query-string'
-import { useForm } from '../../hooks/useForm';
-import { getInmueblesByName } from '../../selectors/getInmueblesByName';
+import React from 'react';
 import { CiShoppingCart } from 'react-icons/ci';
 
 const urlApiInventario = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/inventario.json';
@@ -28,21 +24,6 @@ await fetch(urlApiFrutas)                          //Leer API tabla FACTURA obje
     .then(data => frutas = data)
 
 export const CarritoScreen = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const { q = '' } = queryString.parse(location.search);
-
-  const [ formValues,handleInputChange ] = useForm({
-    searchText: q,
-  });
-
-  const { searchText } = formValues;
-  const inmueblesFiltered = useMemo( () => getInmueblesByName(q), [q] );
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    navigate(`?q=${ searchText }`);
-  };
 
   return (
     <>
@@ -51,7 +32,7 @@ export const CarritoScreen = () => {
       <div className='row'>
         <div>
           <center>
-            <h4><CiShoppingCart className='icon'/></h4>
+            <h6><CiShoppingCart className='icon'/></h6>
             <hr />
             <table className='table table-sm table-bordered table-striped w-100'>
               <thead className="thead-light">
