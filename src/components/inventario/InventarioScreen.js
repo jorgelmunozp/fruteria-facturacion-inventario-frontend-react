@@ -26,7 +26,7 @@ export const InventarioScreen = () => {
 
   return (
     <>
-      <center><h2>Inventario</h2></center> 
+      <center><h3>Inventario</h3></center> 
       <hr />
       <div className='row'> 
         <div>

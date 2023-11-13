@@ -27,7 +27,7 @@ export const CarritoScreen = () => {
 
   return (
     <>
-      <center><h2>Carrito</h2></center> 
+      <center><h3>Carrito</h3></center> 
       <hr />
       <div className='row'>
         <div>

@@ -7,7 +7,7 @@
 }
 
 *{
-    font: 3.5vmin 'Century Gothic', Helvetica, Arial, sans-serif;
+    font: 3vmin 'Century Gothic', Helvetica, Arial, sans-serif;
 }
 a { 
     text-decoration: none;
@@ -25,7 +25,7 @@ span {
     color: var(--main-color)!important;
 }
 .icon {
-    font-size: 10vmin;
+    font-size: 7.5vmin;
 }
 
 .thead-light {
@@ -33,7 +33,7 @@ span {
     color: var(--white-color);
 }
 th {
-    font-size: 3.25vmin !important;
+    font-size: 3vmin !important;
     text-align: center;
 }
 td {

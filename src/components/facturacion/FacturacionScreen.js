@@ -26,7 +26,7 @@ export const FacturacionScreen = () => {
 
   return (
     <>
-      <center><h2>Facturación</h2></center> 
+      <center><h3>Facturación</h3></center> 
       <hr />
       <div className='row'> 
         <div>
