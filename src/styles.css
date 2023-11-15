@@ -1,6 +1,6 @@
 :root {
-    --lightgray-color: #ddd;
     --dark-color: #212529;
+    --lightgray-color: #dddddd;
     --main-color: #5285c5;
     --orange-color: #f38d3a;
     --white-color: #fff;
@@ -62,6 +62,9 @@ button {
 .btn-login:hover {
     color: var(--white-color);
     background-color: var(--main-color);
+}
+.btn-outline-warning:hover {
+    border-color: var(--dark-color)
 }
 .btn-inmueble, .btn-buscar {
     color: var(--main-color);

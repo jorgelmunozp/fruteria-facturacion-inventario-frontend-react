@@ -31,104 +31,174 @@ export const FacturacionScreen = () => {
       <div className='row'> 
         <div>
           <center>
-            <h4>Frutas Disponibles</h4>
-            <hr />
+            <form method="GET">
+              <div>
+                <table className='table table-sm table-bordered table-striped w-100'>
+                  <thead className="thead-light">
+                    <tr>
+                      <th>Fruta</th>
+                      <th>Cantidad</th>
+                      <th>Carrito</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>  
+                        <table id="grupoFrutas" border="3" frame="void" rules="all"> 
+                          <tr>
+                            <td> 
+                              <input type="radio" name="frutaDeseada" value="Manzanas" id="Manzanas"/>
+                            </td>
+                            <td>
+                              <label htmlFor="Manzanas">Manzanas</label>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td> 
+                              <input type="radio" name="frutaDeseada" value="Bananos" id="Bananos"/>
+                            </td>
+                            <td>
+                              <label htmlFor="Bananos">Bananos</label>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td> 
+                              <input type="radio" name="frutaDeseada" value="Mangos" id="Mangos"/>
+                            </td>
+                            <td>
+                              <label htmlFor="Mangos">Mangos</label>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td> 
+                              <input type="radio" name="frutaDeseada" value="Fresas" id="Fresas"/>
+                            </td>
+                            <td>
+                              <label htmlFor="Fresas">Fresas</label>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td>
+                        <input id="cantidadDeseada" type="number" name="cantidadDeseada" value="0" min="0" placeholder=" Kilos de fruta" autocomplete="off"/>
+                      </td>
+                      <td>
+                        <input type="submit" value="Agregar" name="botones" id="Agregar"/>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br/>
+                <p></p>
+              </div>
+              <div>
+              <form method="GET">
+              <table className='table table-sm table-bordered table-striped w-100'>
+                  <thead className="thead-light">
+                    <tr>
+                      <th>Total a Pagar</th>
+                      <th>
+                        <input id="totalCompra" type="text" name="totalCompra" placeholder=" Total a pagar" autocomplete="off" disabled/>
+                      </th>
+                    </tr>
+                  </thead>
+                </table>
+                <hr />
+                <h4>Carrito de Compras</h4>
+                <hr />
+                <table className='table table-sm table-bordered table-striped w-100'>
+                  <thead className="thead-light">
+                    <tr>
+                      <th>Fruta</th>
+                      <th>Kilos</th>
+                      <th>Precio</th>
+                      <th>Subtotal</th>
+                      <th>Descuento</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Manzanas</td>
+                      <td></td>
+                      <td>  </td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Bananos</td>
+                      <td></td>
+                      <td>  </td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Mangos</td>
+                      <td></td>
+                      <td>  </td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Fresas</td>
+                      <td></td>
+                      <td>  </td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td colspan="5">Total a pagar</td>
+                      <td></td>
+                    </tr>
+                    <tr> 
+                      <td colspan="6">
+                        <input type="submit" value="Facturar" name="botones" id="Facturar"/>
+                        <input type="submit" value="Cancelar" name="botones" id="Cancelar"/>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <a href="/facturas/factura.pdf" target="_blank">
+                  <p></p></a>
+              </form>
+            </div>
+          </form>
+          <hr />
+          <h4>Descuentos</h4>
+          <hr />
             <table className='table table-sm table-bordered table-striped w-100'>
               <thead className="thead-light">
                 <tr>
-                  <th>Fruta</th>
-                  <th>Disponibilidad</th>
-                  <th>Ventas</th>
-                  <th>Kilos vendidos</th>
-                  <th>Total</th>
+                  <th>Cantidad (Kilos)</th>
+                  <th>Descuento</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>{inventario.manzanas.nombre}</td>
-                  <td>{formatterMiles.format(inventario.manzanas.cantidad)}</td>
-                  <td>{formatterMiles.format(inventario.manzanas.ventas)}</td>
-                  <td>{formatterMiles.format(inventario.manzanas.kilos)}</td>
-                  <td>{formatterPeso.format(inventario.manzanas.total)}</td>
+                  <td>0 - 2</td>
+                  <td>0 %</td>
                 </tr>
                 <tr>
-                  <td>{inventario.bananos.nombre}</td>
-                  <td>{formatterMiles.format(inventario.bananos.cantidad)}</td>
-                  <td>{formatterMiles.format(inventario.bananos.ventas)}</td>
-                  <td>{formatterMiles.format(inventario.bananos.kilos)}</td>
-                  <td>{formatterPeso.format(inventario.bananos.total)}</td>
+                  <td>2 - 5</td>
+                  <td>5 %   </td>
                 </tr>
                 <tr>
-                    <td>{inventario.mangos.nombre}</td>
-                    <td>{formatterMiles.format(inventario.mangos.cantidad)}</td>
-                    <td>{formatterMiles.format(inventario.mangos.ventas)}</td>
-                    <td>{formatterMiles.format(inventario.mangos.kilos)}</td>
-                    <td>{formatterPeso.format(inventario.mangos.total)}</td>
+                  <td>5 - 10</td>
+                  <td>10 %</td>
                 </tr>
                 <tr>
-                  <td>{inventario.fresas.nombre}</td>
-                  <td>{formatterMiles.format(inventario.fresas.cantidad)}</td>
-                  <td>{formatterMiles.format(inventario.fresas.ventas)}</td>
-                  <td>{formatterMiles.format(inventario.fresas.kilos)}</td>
-                  <td>{formatterPeso.format(inventario.fresas.total)}</td>
+                  <td>10+</td>
+                  <td>15 %</td>
                 </tr>
               </tbody>
             </table>
           </center>
         </div>
         <hr />
-        <div >
-          <center>
-            <h4>Carrito de Compras</h4>
-            <hr />
-            <table className='table table-sm table-bordered table-striped w-100'>
-              <thead className="thead-light">
-                <tr>
-                  <th>Fruta</th>
-                  <th>Kilos</th>
-                  <th>Precio</th>
-                  <th>Subtotal</th>
-                  <th>Descuento</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{inventario.manzanas.nombre}</td>
-                  <td>{formatterMiles.format(inventario.manzanas.cantidad)}</td>
-                  <td>{formatterMiles.format(inventario.manzanas.ventas)}</td>
-                  <td>{formatterMiles.format(inventario.manzanas.kilos)}</td>
-                  <td>{formatterPeso.format(inventario.manzanas.total)}</td>
-                  <td>{formatterPeso.format(inventario.manzanas.total)}</td>
-                </tr>
-                <tr>
-                  <td>{inventario.bananos.nombre}</td>
-                  <td>{formatterMiles.format(inventario.bananos.cantidad)}</td>
-                  <td>{formatterMiles.format(inventario.bananos.ventas)}</td>
-                  <td>{formatterMiles.format(inventario.bananos.kilos)}</td>
-                  <td>{formatterPeso.format(inventario.bananos.total)}</td>
-                  <td>{formatterPeso.format(inventario.bananos.total)}</td>
-                </tr>
-                <tr>
-                    <td>{inventario.mangos.nombre}</td>
-                    <td>{formatterMiles.format(inventario.mangos.cantidad)}</td>
-                    <td>{formatterMiles.format(inventario.mangos.ventas)}</td>
-                    <td>{formatterMiles.format(inventario.mangos.kilos)}</td>
-                    <td>{formatterPeso.format(inventario.mangos.total)}</td>
-                    <td>{formatterPeso.format(inventario.mangos.total)}</td>
-                </tr>
-                <tr>
-                  <td>{inventario.fresas.nombre}</td>
-                  <td>{formatterMiles.format(inventario.fresas.cantidad)}</td>
-                  <td>{formatterMiles.format(inventario.fresas.ventas)}</td>
-                  <td>{formatterMiles.format(inventario.fresas.kilos)}</td>
-                  <td>{formatterPeso.format(inventario.fresas.total)}</td>
-                  <td>{formatterPeso.format(inventario.fresas.total)}</td>
-                </tr>
-              </tbody>
-            </table>
-          </center>
-        </div>
       </div>
     </>
   )
