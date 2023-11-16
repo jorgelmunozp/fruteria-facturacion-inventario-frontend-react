@@ -1,7 +1,7 @@
 import React from 'react';
 
 const urlApiInventario = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/inventario.json';
-const urlApiFrutas = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/frutas.json';
+const urlApiProveedores = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/proveedores.json';
 let inventario,frutas;
 
 const formatterPeso = new Intl.NumberFormat('es-CO', {   //Formato moneda $ pesos Colmbianos
@@ -18,7 +18,7 @@ await fetch(urlApiInventario)                       //Leer API tabla INVENTARIO 
     .then(response => response.json())
     .then(data => inventario = data)
 
-await fetch(urlApiFrutas)                          //Leer API tabla FACTURA objeto JSON Base de datos
+await fetch(urlApiProveedores)                          //Leer API tabla FACTURA objeto JSON Base de datos
     .then(response => response.json())
     .then(data => frutas = data)
 
