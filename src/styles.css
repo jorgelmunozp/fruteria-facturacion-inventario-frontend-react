@@ -30,7 +30,7 @@ span {
 
 .thead-light {
     background-color: var(--main-color)!important;
-    color: var(--white-color);
+    color: var(--white-color)!important;
 }
 th {
     font-size: 3vmin !important;
@@ -38,6 +38,10 @@ th {
 }
 td {
     text-align: center;
+}
+.totalCarrito {
+    background-color: var(--main-color) !important;
+    color: var(--white-color) !important;
 }
 
 input {
