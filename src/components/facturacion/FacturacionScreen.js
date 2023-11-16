@@ -3,9 +3,7 @@ import React, { useState } from 'react';
 const urlApiInventario = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/inventario.json';
 const urlApiProveedores = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/proveedores.json';
 const urlApiDescuentos = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/descuentos.json';
-const urlCarritoCompras = 'https://jorgelmunozp.github.io/fruteria-facturacion-inventario-frontend-react/carritocompras/carrito.json';
-
-let inventario, proveedores, descuentos;
+const urlCarritoCompras = 'https://jorgelmunozp.github.io/fruteria-facturacion-inventario-frontend-react/carrito/carrito.json';
 
 const formatterPeso = new Intl.NumberFormat('es-CO', {   //Formato moneda $ pesos Colmbianos
   style: 'currency',
@@ -17,6 +15,7 @@ const formatterMiles = new Intl.NumberFormat('es-CO', {   //Formato miles para c
   minimumFractionDigits: 0
 });
 
+let inventario, proveedores, descuentos, carrito;
 await fetch(urlApiInventario)                       //Leer API tabla INVENTARIO objeto JSON Base de datos
     .then(response => response.json())
     .then(data => inventario = data)
@@ -29,6 +28,11 @@ await fetch(urlApiDescuentos)                       //Leer API tabla DESCUENTOS 
     .then(response => response.json())
     .then(data => descuentos = data)
 
+await fetch(urlCarritoCompras)                       //Leer API tabla DESCUENTOS objeto JSON Base de datos
+    .then(response => response.json())
+    .then(data => carrito = data)
+
+    
 const AgregarAlCarrito = (setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas) => {
   let frutaDeseada, cantidadDeseada, descuento;
   const frutaSelector = document.querySelector('input[name="frutaDeseada"]:checked');
@@ -50,6 +54,7 @@ const AgregarAlCarrito = (setCantidadManzanas,setCantidadBananos,setCantidadMang
 
 const Descuento = (cantidadDeseada,valorKilo) => {
   let descuento;
+  console.log(carrito)
   if(cantidadDeseada>=0 && cantidadDeseada<=2){ descuento = cantidadDeseada * valorKilo * descuentos.descuento1.descuento; }
     else if(cantidadDeseada>2 && cantidadDeseada<=5){ descuento = cantidadDeseada * valorKilo * descuentos.descuento2.descuento/100; } 
     else if(cantidadDeseada>5 && cantidadDeseada<=10){ descuento = cantidadDeseada * valorKilo * descuentos.descuento3.descuento/100; } 
