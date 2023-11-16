@@ -32,7 +32,7 @@ await fetch(urlCarritoCompras)                       //Leer API tabla CARRITO CO
     .then(response => response.json())
     .then(data => carrito = data)
 
-const AgregarAlCarrito = (setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas) => {
+const AgregarAlCarrito = (cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas,setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas) => {
   let frutaDeseada, cantidadDeseada, descuento;
   const frutaSelector = document.querySelector('input[name="frutaDeseada"]:checked');
   const cantidadSelector = document.getElementById('cantidadDeseada');
@@ -43,7 +43,7 @@ const AgregarAlCarrito = (setCantidadManzanas,setCantidadBananos,setCantidadMang
     if(frutaDeseada === "Bananos"){ setCantidadBananos(cantidadDeseada); setDescuentoBananos(Descuento(cantidadDeseada,proveedores.fruta2.valorkilo)); }
     if(frutaDeseada === "Mangos"){ setCantidadMangos(cantidadDeseada); setDescuentoMangos(Descuento(cantidadDeseada,proveedores.fruta3.valorkilo)); }
     if(frutaDeseada === "Fresas"){ setCantidadFresas(cantidadDeseada); setDescuentoFresas(Descuento(cantidadDeseada,proveedores.fruta4.valorkilo)); }
-    Carrito();
+    Carrito(cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas);
   } else if(frutaSelector === null){
     console.log("Seleccionar fruta a comprar");
   } else if(cantidadSelector.value === 0){
@@ -62,47 +62,50 @@ const Descuento = (cantidadDeseada,valorKilo) => {
 
 
 /********** Actualiza el archivo json del carrito de compras del frontend del lado del cliente  *********/
-const Carrito = () => {
+const Carrito = (cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas) => {
   console.log("Carrito!!")
   fetch(urlCarritoCompras, {
             method: 'PUT',
             body: JSON.stringify({
                 detalle: {
                   manzanas: {
-                      nombre: factura.detalle.manzanas.nombre,
+                      nombre: proveedores.fruta1.nombre,
                       kilos: cantidadManzanas,
-                      precio: factura.detalle.manzanas.precio,
-                      subtotal: factura.detalle.manzanas.subtotal,
-                      descuento: factura.detalle.manzanas.descuento,
-                      total: factura.detalle.manzanas.total
+                      precio: proveedores.fruta1.valorkilo,
+                      subtotal: cantidadManzanas * proveedores.fruta1.valorkilo,
+                      descuento: descuentoManzanas,
+                      total: cantidadManzanas * proveedores.fruta1.valorkilo - descuentoManzanas
                   },
                   bananos: {
-                      nombre: factura.detalle.bananos.nombre,
+                      nombre: proveedores.fruta2.nombre,
                       kilos: cantidadBananos,
-                      precio: factura.detalle.bananos.precio,
-                      subtotal: factura.detalle.bananos.subtotal,
-                      descuento: factura.detalle.bananos.descuento,
-                      total: factura.detalle.bananos.total
+                      precio: proveedores.fruta2.valorkilo,
+                      subtotal: cantidadBananos * proveedores.fruta2.valorkilo,
+                      descuento: descuentoBananos,
+                      total: cantidadBananos * proveedores.fruta2.valorkilo - descuentoBananos
                   },
                   mangos: {
-                      nombre: factura.detalle.mangos.nombre,
+                      nombre: proveedores.fruta3.nombre,
                       kilos: cantidadMangos,
-                      precio: factura.detalle.mangos.precio,
-                      subtotal: factura.detalle.mangos.subtotal,
-                      descuento: factura.detalle.mangos.descuento,
-                      total: factura.detalle.mangos.total
+                      precio: proveedores.fruta3.valorkilo,
+                      subtotal: cantidadMangos * proveedores.fruta3.valorkilo,
+                      descuento: descuentoMangos,
+                      total: cantidadMangos * proveedores.fruta3.valorkilo - descuentoMangos
                   },
                   fresas: {
-                      nombre: factura.detalle.fresas.nombre,
+                      nombre: proveedores.fruta4.nombre,
                       kilos: cantidadFresas,
-                      precio: factura.detalle.fresas.precio,
-                      subtotal: factura.detalle.fresas.subtotal,
-                      descuento: factura.detalle.fresas.descuento,
-                      total: factura.detalle.fresas.total
+                      precio: proveedores.fruta4.valorkilo,
+                      subtotal: cantidadFresas * proveedores.fruta4.valorkilo,
+                      descuento: descuentoFresas,
+                      total: cantidadFresas * proveedores.fruta4.valorkilo - descuentoFresas
                   }
                 },
-                totalAPagar: totalAPagar
-            }),
+                totalAPagar: cantidadManzanas * proveedores.fruta1.valorkilo - descuentoManzanas +
+                             cantidadBananos * proveedores.fruta2.valorkilo - descuentoBananos +
+                             cantidadMangos * proveedores.fruta3.valorkilo - descuentoMangos +
+                             cantidadFresas * proveedores.fruta4.valorkilo - descuentoFresas
+            }),     
             headers: {
                 "Content-type": "application/json"
             }
@@ -161,7 +164,7 @@ export const FacturacionScreen = () => {
                     </td>
                     <td><input id="cantidadDeseada" type="number" name="cantidadDeseada" defaultValue={0} min="0" placeholder=" Kilos de fruta" autoComplete="off"/></td>
                     <td>
-                      <input type="submit" value="Agregar" name="botones" id="Agregar" onClick={() => AgregarAlCarrito(setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas)}/>
+                      <input type="submit" value="Agregar" name="botones" id="Agregar" onClick={() => AgregarAlCarrito(cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas)}/>
                     </td>
                   </tr>
                 </tbody>
