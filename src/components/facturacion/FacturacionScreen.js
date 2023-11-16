@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const urlApiInventario = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/inventario.json';
 const urlApiProveedores = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/proveedores.json';
 const urlApiDescuentos = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/descuentos.json';
-const urlCarritoCompras = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/carritocompras/carrito.json';
+const urlCarritoCompras = 'https://jorgelmunozp.github.io/fruteria-facturacion-inventario-frontend-react/carritocompras/carrito.json';
 
 let inventario, proveedores, descuentos;
 
