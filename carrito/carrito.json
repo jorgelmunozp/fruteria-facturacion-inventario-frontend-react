@@ -1,0 +1,37 @@
+{
+    "detalle": {
+      "manzanas": {
+        "nombre": "Manzanas",
+        "kilos": 0,
+        "precio": 4200,
+        "subtotal": 0,
+        "descuento": 0,
+        "total": 0
+      },
+      "bananos": {
+        "nombre": "Bananos",
+        "kilos": 0,
+        "precio": 2200,
+        "subtotal": 0,
+        "descuento": 0,
+        "total": 0
+      },
+      "mangos": {
+        "nombre": "Mangos",
+        "kilos": 0,
+        "precio": 3500,
+        "subtotal": 0,
+        "descuento": 0,
+        "total": 0
+      },
+      "fresas": {
+        "nombre": "Fresas",
+        "kilos": 0,
+        "precio": 2700,
+        "subtotal": 0,
+        "descuento": 0,
+        "total": 0
+      }
+    },
+    "totalAPagar": 0
+  }
