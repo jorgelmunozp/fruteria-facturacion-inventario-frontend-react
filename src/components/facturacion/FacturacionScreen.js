@@ -28,11 +28,10 @@ await fetch(urlApiDescuentos)                       //Leer API tabla DESCUENTOS 
     .then(response => response.json())
     .then(data => descuentos = data)
 
-await fetch(urlCarritoCompras)                       //Leer API tabla DESCUENTOS objeto JSON Base de datos
+await fetch(urlCarritoCompras)                       //Leer API tabla CARRITO COMPRAS objeto JSON Base de datos
     .then(response => response.json())
     .then(data => carrito = data)
 
-    
 const AgregarAlCarrito = (setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas) => {
   let frutaDeseada, cantidadDeseada, descuento;
   const frutaSelector = document.querySelector('input[name="frutaDeseada"]:checked');
@@ -54,7 +53,6 @@ const AgregarAlCarrito = (setCantidadManzanas,setCantidadBananos,setCantidadMang
 
 const Descuento = (cantidadDeseada,valorKilo) => {
   let descuento;
-  console.log(carrito)
   if(cantidadDeseada>=0 && cantidadDeseada<=2){ descuento = cantidadDeseada * valorKilo * descuentos.descuento1.descuento; }
     else if(cantidadDeseada>2 && cantidadDeseada<=5){ descuento = cantidadDeseada * valorKilo * descuentos.descuento2.descuento/100; } 
     else if(cantidadDeseada>5 && cantidadDeseada<=10){ descuento = cantidadDeseada * valorKilo * descuentos.descuento3.descuento/100; } 
@@ -62,15 +60,54 @@ const Descuento = (cantidadDeseada,valorKilo) => {
   return descuento;
 }
 
+
+/********** Actualiza el archivo json del carrito de compras del frontend del lado del cliente  *********/
 const Carrito = () => {
-  // let carrito = JSON.parse(fs.readFileSync('carrito/carrito.json'))    //Convierte JSON a objecto Javascript
-  // console.log(carrito);
-
-  // console.log(loadJsonFile('carrito/carrito.json'))
-
-  // fs.writeFileSync('carrito/carrito.json', JSON.stringify({"detalle":"hola"}, null, 2), error => {
-  //   if (error) console.log(error);
-  // });
+  console.log("Carrito!!")
+  fetch(urlCarritoCompras, {
+            method: 'PUT',
+            body: JSON.stringify({
+                detalle: {
+                  manzanas: {
+                      nombre: factura.detalle.manzanas.nombre,
+                      kilos: cantidadManzanas,
+                      precio: factura.detalle.manzanas.precio,
+                      subtotal: factura.detalle.manzanas.subtotal,
+                      descuento: factura.detalle.manzanas.descuento,
+                      total: factura.detalle.manzanas.total
+                  },
+                  bananos: {
+                      nombre: factura.detalle.bananos.nombre,
+                      kilos: cantidadBananos,
+                      precio: factura.detalle.bananos.precio,
+                      subtotal: factura.detalle.bananos.subtotal,
+                      descuento: factura.detalle.bananos.descuento,
+                      total: factura.detalle.bananos.total
+                  },
+                  mangos: {
+                      nombre: factura.detalle.mangos.nombre,
+                      kilos: cantidadMangos,
+                      precio: factura.detalle.mangos.precio,
+                      subtotal: factura.detalle.mangos.subtotal,
+                      descuento: factura.detalle.mangos.descuento,
+                      total: factura.detalle.mangos.total
+                  },
+                  fresas: {
+                      nombre: factura.detalle.fresas.nombre,
+                      kilos: cantidadFresas,
+                      precio: factura.detalle.fresas.precio,
+                      subtotal: factura.detalle.fresas.subtotal,
+                      descuento: factura.detalle.fresas.descuento,
+                      total: factura.detalle.fresas.total
+                  }
+                },
+                totalAPagar: totalAPagar
+            }),
+            headers: {
+                "Content-type": "application/json"
+            }
+      })
+      .then(response => response.json())
 }
 
 export const FacturacionScreen = () => {
