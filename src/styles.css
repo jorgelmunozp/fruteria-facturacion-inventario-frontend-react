@@ -44,18 +44,6 @@ td {
     color: var(--white-color) !important;
 }
 
-input {
-    border: 1.5px solid var(--main-color);
-    border-radius: 100vmax;
-    padding: 1vmin 0 1vmin 0;
-}
-input::placeholder {
-    color: var(--lightgray-color);
-    letter-spacing: 0.5px;
-}
-button {
-    border-radius: 100vmax;
-}
 .btn-login {
     color: var(--main-color);
     border-color: var(--main-color);
@@ -83,3 +71,88 @@ button {
     font-weight: bold!important;
     background-color: var(--main-color);
 }
+
+input {
+    border: none;
+}
+input::placeholder {
+    color: var(--lightgray-color);
+}
+input[type=text]{
+    background-color: white;
+    color: var(--main-color);
+    padding: 20px 0 20px 0;
+    letter-spacing: 0.5vmin;
+    font-size: inherit;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 1));
+  }
+  
+  input[type='radio'] {
+    -webkit-appearance: none;
+    appearance: none;
+    display: grid;
+    width: 1.15em;
+    height: 1.15em;
+    margin-left: auto;
+    margin-right: auto;
+    place-content: center;
+    background-color: var(--main-color);
+    color: currentColor;
+    font: inherit;
+    border: 0.15em solid gray;
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+    cursor: pointer;
+  }
+  input[type="radio"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+    background-color: CanvasText;   /* Windows High Contrast Mode */
+  }
+  input[type="radio"]:checked::before {
+    transform: scale(1);
+  }
+  input[type="radio"]:focus {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);
+  }
+  
+  input[type=number]{
+    /* background-color: #eee!important; */
+    color: var(--main-color);
+    width: 95%;
+    height: 16vmin;
+    padding: 15px 0 15px 15px;
+    text-align: center;
+    letter-spacing: 0.5vmin;
+    font-size: inherit;
+    font-weight: bold;
+    /* filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 1)); */
+  }
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    opacity: 1;
+    height: 16vmin;
+    padding: 0 7vmin 0 7vmin;
+    background-color: var(--main-color)!important;
+    color: var(--main-color)!important;
+    font-size: inherit;
+    cursor: pointer;
+  }
+  
+  input[type=submit]{
+    color: white;
+    background-color: var(--main-color);
+    width: 50%;
+    padding: 1vmin 0 1vmin 0;
+    border-radius: 100vmax;
+    letter-spacing: 0.5vmin;
+    font-size: 2.5vmin;
+    cursor: pointer;
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 1));
+  }

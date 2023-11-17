@@ -1,21 +1,13 @@
 import React, { useState } from 'react';
+import { formatterPeso } from '../../helpers/formatterPeso';
+import { formatterMiles } from '../../helpers/formatterMiles';
 
-const urlApiInventario = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/inventario.json';
-const urlApiProveedores = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/proveedores.json';
-const urlApiDescuentos = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/descuentos.json';
-const urlCarritoCompras = 'https://jorgelmunozp.github.io/fruteria-facturacion-inventario-frontend-react/carrito/carrito.json';
-
-const formatterPeso = new Intl.NumberFormat('es-CO', {   //Formato moneda $ pesos Colmbianos
-  style: 'currency',
-  currency: 'COP',
-  minimumFractionDigits: 0
-});
-const formatterMiles = new Intl.NumberFormat('es-CO', {   //Formato miles para cantidades
-  style: 'decimal',
-  minimumFractionDigits: 0
-});
-
+const urlApiInventario = process.env.REACT_APP_API_INVENTARIO;
+const urlApiProveedores = process.env.REACT_APP_API_PROVEEDORES;
+const urlApiDescuentos = process.env.REACT_APP_API_DESCUENTOS;
+const urlCarritoCompras = process.env.REACT_APP_API_CARRITO;
 let inventario, proveedores, descuentos, carrito;
+
 await fetch(urlApiInventario)                       //Leer API tabla INVENTARIO objeto JSON Base de datos
     .then(response => response.json())
     .then(data => inventario = data)
@@ -33,16 +25,16 @@ await fetch(urlCarritoCompras)                       //Leer API tabla CARRITO CO
     .then(data => carrito = data)
 
 const AgregarAlCarrito = (cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas,setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas) => {
-  let frutaDeseada, cantidadDeseada, descuento;
+  let frutaDeseada, cantidadDeseada;
   const frutaSelector = document.querySelector('input[name="frutaDeseada"]:checked');
   const cantidadSelector = document.getElementById('cantidadDeseada');
   if ((frutaSelector !== null) && (cantidadSelector.value !== 0))  {
     frutaDeseada = frutaSelector.value;
     cantidadDeseada = cantidadSelector.value;
     if(frutaDeseada === "Manzanas"){ setCantidadManzanas(cantidadDeseada); setDescuentoManzanas(Descuento(cantidadDeseada,proveedores.fruta1.valorkilo)); }
-    if(frutaDeseada === "Bananos"){ setCantidadBananos(cantidadDeseada); setDescuentoBananos(Descuento(cantidadDeseada,proveedores.fruta2.valorkilo)); }
-    if(frutaDeseada === "Mangos"){ setCantidadMangos(cantidadDeseada); setDescuentoMangos(Descuento(cantidadDeseada,proveedores.fruta3.valorkilo)); }
-    if(frutaDeseada === "Fresas"){ setCantidadFresas(cantidadDeseada); setDescuentoFresas(Descuento(cantidadDeseada,proveedores.fruta4.valorkilo)); }
+    else if(frutaDeseada === "Bananos"){ setCantidadBananos(cantidadDeseada); setDescuentoBananos(Descuento(cantidadDeseada,proveedores.fruta2.valorkilo)); }
+    else if(frutaDeseada === "Mangos"){ setCantidadMangos(cantidadDeseada); setDescuentoMangos(Descuento(cantidadDeseada,proveedores.fruta3.valorkilo)); }
+    else if(frutaDeseada === "Fresas"){ setCantidadFresas(cantidadDeseada); setDescuentoFresas(Descuento(cantidadDeseada,proveedores.fruta4.valorkilo)); }
     Carrito(cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas);
   } else if(frutaSelector === null){
     console.log("Seleccionar fruta a comprar");
@@ -124,6 +116,7 @@ export const FacturacionScreen = () => {
   const [descuentoFresas, setDescuentoFresas] = useState(0);
   return (
     <>
+      <hr />
       <center><h3>Facturación</h3></center> 
       <hr />
       <div className='row'> 
@@ -162,9 +155,12 @@ export const FacturacionScreen = () => {
                         </tbody>
                       </table>
                     </td>
-                    <td><input id="cantidadDeseada" type="number" name="cantidadDeseada" defaultValue={0} min="0" placeholder=" Kilos de fruta" autoComplete="off"/></td>
+                    <td><input id="cantidadDeseada" type="number" name="cantidadDeseada" defaultValue={0} min="0" placeholder=" Kilos fruta" autoComplete="off"/></td>
                     <td>
-                      <input type="submit" value="Agregar" name="botones" id="Agregar" onClick={() => AgregarAlCarrito(cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas)}/>
+                      <input type="submit" value="Agregar" name="botones" id="Agregar" onClick={() => AgregarAlCarrito(cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas,setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas)}/>
+                      <button className='btn-login btn btn-lg btn-outline-warning shadow-sm' onClick={ () => AgregarAlCarrito(cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas,setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas) }>
+                        Agregar
+                      </button>
                     </td>
                   </tr>
                 </tbody>
@@ -189,7 +185,7 @@ export const FacturacionScreen = () => {
               <tbody>
                 <tr>
                   <td>Manzanas</td>
-                  <td>{cantidadManzanas}</td>
+                  <td>{formatterMiles.format(cantidadManzanas)}</td>
                   <td>{formatterPeso.format(proveedores.fruta1.valorkilo)}</td>
                   <td>{formatterPeso.format(cantidadManzanas * proveedores.fruta1.valorkilo)}</td>
                   <td>{formatterPeso.format(descuentoManzanas)}</td>
@@ -197,7 +193,7 @@ export const FacturacionScreen = () => {
                 </tr>
                 <tr>
                   <td>Bananos</td>
-                  <td>{cantidadBananos}</td>
+                  <td>{formatterMiles.format(cantidadBananos)}</td>
                   <td>{formatterPeso.format(proveedores.fruta2.valorkilo)}</td>
                   <td>{formatterPeso.format(cantidadBananos * proveedores.fruta2.valorkilo)}</td>
                   <td>{formatterPeso.format(descuentoBananos)}</td>
@@ -205,7 +201,7 @@ export const FacturacionScreen = () => {
                 </tr>
                 <tr>
                   <td>Mangos</td>
-                  <td>{cantidadMangos}</td>
+                  <td>{formatterMiles.format(cantidadMangos)}</td>
                   <td>{formatterPeso.format(proveedores.fruta3.valorkilo)}</td>
                   <td>{formatterPeso.format(cantidadMangos * proveedores.fruta3.valorkilo)}</td>
                   <td>{formatterPeso.format(descuentoMangos)}</td>
@@ -213,7 +209,7 @@ export const FacturacionScreen = () => {
                 </tr>
                 <tr>
                   <td>Fresas</td>
-                  <td>{cantidadFresas}</td>
+                  <td>{formatterMiles.format(cantidadFresas)}</td>
                   <td>{formatterPeso.format(proveedores.fruta4.valorkilo)}</td>
                   <td>{formatterPeso.format(cantidadFresas * proveedores.fruta4.valorkilo)}</td>
                   <td>{formatterPeso.format(descuentoFresas)}</td>

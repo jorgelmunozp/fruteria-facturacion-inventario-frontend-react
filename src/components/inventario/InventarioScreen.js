@@ -1,18 +1,10 @@
 import React from 'react';
+import { formatterPeso } from '../../helpers/formatterPeso';
+import { formatterMiles } from '../../helpers/formatterMiles';
 
-const urlApiInventario = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/inventario.json';
-const urlApiProveedores = 'https://jorgelmunozp.github.io/express-fruteria-inventario-backend/proveedores.json';
+const urlApiInventario = process.env.REACT_APP_API_INVENTARIO;
+const urlApiProveedores = process.env.REACT_APP_API_PROVEEDORES;
 let inventario,frutas;
-
-const formatterPeso = new Intl.NumberFormat('es-CO', {   //Formato moneda $ pesos Colmbianos
-  style: 'currency',
-  currency: 'COP',
-  minimumFractionDigits: 0
-});
-const formatterMiles = new Intl.NumberFormat('es-CO', {   //Formato miles para cantidades
-  style: 'decimal',
-  minimumFractionDigits: 0
-});
 
 await fetch(urlApiInventario)                       //Leer API tabla INVENTARIO objeto JSON Base de datos
     .then(response => response.json())
