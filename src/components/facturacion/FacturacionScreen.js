@@ -28,6 +28,7 @@ const AgregarAlCarrito = (cantidadManzanas,cantidadBananos,cantidadMangos,cantid
   let frutaDeseada, cantidadDeseada;
   const frutaSelector = document.querySelector('input[name="frutaDeseada"]:checked');
   const cantidadSelector = document.getElementById('cantidadDeseada');
+  
   if ((frutaSelector !== null) && (cantidadSelector.value !== 0))  {
     frutaDeseada = frutaSelector.value;
     cantidadDeseada = cantidadSelector.value;
@@ -114,6 +115,7 @@ export const FacturacionScreen = () => {
   const [descuentoBananos, setDescuentoBananos] = useState(0);
   const [descuentoMangos, setDescuentoMangos] = useState(0);
   const [descuentoFresas, setDescuentoFresas] = useState(0);
+
   return (
     <>
       <hr />
@@ -133,34 +135,33 @@ export const FacturacionScreen = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>  
-                      <table id="grupoFrutas" border="3" frame="void" rules="all"> 
-                        <tbody>
-                          <tr>
-                            <td><input type="radio" name="frutaDeseada" value="Manzanas" id="Manzanas"/></td>
-                            <td><label htmlFor="Manzanas">Manzanas</label></td>
-                          </tr>
-                          <tr>
-                            <td><input type="radio" name="frutaDeseada" value="Bananos" id="Bananos"/></td>
-                            <td><label htmlFor="Bananos">Bananos</label></td>
-                          </tr>
-                          <tr>
-                            <td><input type="radio" name="frutaDeseada" value="Mangos" id="Mangos"/></td>
-                            <td><label htmlFor="Mangos">Mangos</label></td>
-                          </tr>
-                          <tr>
-                            <td><input type="radio" name="frutaDeseada" value="Fresas" id="Fresas"/></td>
-                            <td><label htmlFor="Fresas">Fresas</label></td>
-                          </tr>
-                        </tbody>
-                      </table>
+                    <td>
+                      <center>
+                        <table id="grupoFrutas"> 
+                          <tbody>
+                            <tr>
+                              <td><input type="radio" name="frutaDeseada" value="Manzanas" id="Manzanas"/></td>
+                              <td><label htmlFor="Manzanas">Manzanas</label></td>
+                            </tr>
+                            <tr>
+                              <td><input type="radio" name="frutaDeseada" value="Bananos" id="Bananos"/></td>
+                              <td><label htmlFor="Bananos">Bananos</label></td>
+                            </tr>
+                            <tr>
+                              <td><input type="radio" name="frutaDeseada" value="Mangos" id="Mangos"/></td>
+                              <td><label htmlFor="Mangos">Mangos</label></td>
+                            </tr>
+                            <tr>
+                              <td><input type="radio" name="frutaDeseada" value="Fresas" id="Fresas"/></td>
+                              <td><label htmlFor="Fresas">Fresas</label></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </center>
                     </td>
                     <td><input id="cantidadDeseada" type="number" name="cantidadDeseada" defaultValue={0} min="0" placeholder=" Kilos fruta" autoComplete="off"/></td>
                     <td>
                       <input type="submit" value="Agregar" name="botones" id="Agregar" onClick={() => AgregarAlCarrito(cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas,setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas)}/>
-                      <button className='btn-login btn btn-lg btn-outline-warning shadow-sm' onClick={ () => AgregarAlCarrito(cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas,setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas) }>
-                        Agregar
-                      </button>
                     </td>
                   </tr>
                 </tbody>
