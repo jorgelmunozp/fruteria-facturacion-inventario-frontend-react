@@ -19,13 +19,12 @@ export const CarritoScreen = () => {
 
   return (
     <>
-      <center><h3>Carrito</h3></center> 
+      <hr />
+      <center><h3><CiShoppingCart className='fs-1'/></h3></center> 
       <hr />
       <div className='row'>
         <div>
           <center>
-            <h6><CiShoppingCart className='icon'/></h6>
-            <hr />
             <table className='table table-sm table-bordered table-striped w-100'>
               <thead className="thead-light">
                 <tr>
@@ -72,6 +71,7 @@ export const CarritoScreen = () => {
                 </tr>
               </tbody>
             </table>
+            <hr />
           </center>
         </div>
       </div>

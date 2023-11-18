@@ -25,9 +25,6 @@ h1,h2,h3,h4,h5,h6 {
 span {
     color: var(--main-color)!important;
 }
-.icon {
-    font-size: 7.5vmin;
-}
 
 .thead-light {
     background-color: var(--main-color)!important;
@@ -133,13 +130,14 @@ input[type=password]{
     font-size: inherit;
     cursor: pointer;
   }
-  
+
+  button { background-color:var(--dark-color); color:var(--white-color); }
+  button:hover{ color:var(--dark-color); background-color:var(--gray-color); }
+
   input[type=submit]{
     color: var(--white-color);
     background-color: var(--dark-color);
-    width: 50%;
-    border: 1px solid var(--gray-color);
-    padding: 2.5vmin 6vmin 2.5vmin 6vmin;
+    width: 100%;
     font-size: 2.5vmin;
     cursor: pointer;
   }
