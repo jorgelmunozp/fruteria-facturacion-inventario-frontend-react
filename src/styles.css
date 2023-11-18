@@ -26,6 +26,10 @@ span {
     color: var(--main-color)!important;
 }
 
+.icon {
+  font-size: 8vmin;
+}
+
 .thead-light {
     background-color: var(--main-color)!important;
     color: var(--white-color)!important;
@@ -46,7 +50,6 @@ td {
     color: var(--main-color);
     border-color: var(--main-color);
     border: 2px solid;
-    border-radius: 100vmax;
 }
 .btn-login:hover {
     color: var(--white-color);

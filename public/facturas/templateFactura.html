@@ -1,0 +1,149 @@
+<style>
+  *{
+    font: 20px 'Century Gothic';
+    text-align: center;
+  }
+  #header{							/***** Contenedor div del header *****/
+    background: url("http://localhost:8888/images/banner.jpg") no-repeat;
+    background-size:cover;
+    width:100%;
+    height: 80px;
+    margin-left: auto;
+    margin-right:auto;
+  }
+  #contenidoHeader{
+    margin-left: auto;
+    margin-right:auto;
+  }
+  #header img{								          /***** Logo header *****/
+    width: 50px;
+    filter: drop-shadow(2px 2px 2px rgba(255, 255, 255, 1));
+
+  }
+  #header h1 {								        /***** Titulo header *****/
+    font-size: 32px;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+    letter-spacing: 2px;
+    margin-top: 15px;
+  }
+  #body{
+    font-size: 20px;
+  }
+  #datosFactura{
+    width:100%;
+    margin-left: auto;
+    margin-right:auto;
+  }
+  
+  #detalleFactura{
+    width:100%;
+    margin-left: auto;
+    margin-right:auto;
+    border-collapse: collapse;
+  }
+  #detalleFactura th,#detalleFactura td{
+    border: 1px solid lightgray;
+  }
+  #detalleFactura th{
+    color: white;
+    background-color: #600;
+  }
+  #detalleFactura tr:nth-child(even){background-color: #f2f2f2;}
+  #detalleFactura tr:hover {background-color: #ddd;}
+
+  #totalFactura{
+    width:100%;
+    border-collapse: collapse;
+  }
+  #totalFactura td{
+    border: 1px solid lightgray;
+    text-align: right;
+  }
+  .totalFactura{
+    color: white;
+    background-color: #600!important;
+  }
+  #totalFactura tr:nth-child(even){background-color: #ddd;}
+  #totalFactura tr:hover {background-color: #f2f2f2;}
+</style>
+<header>
+  <div id="header">
+    <table id="contenidoHeader">
+      <th>
+        <td><img src="http://localhost:8888/images/logo.png" id="logo"/></td>
+        <td><h1> Frutería </h1></td>
+      </th>
+    </table>
+  </div>
+</header>
+<body>
+  <div id="body">
+    <p>Bienvenido a nuestra frutería</p>
+    <h1>Factura de Venta</h1>
+    <table id="datosFactura">
+      <tr>
+        <td>Fecha: ${fecha.toLocaleDateString()}</td>
+        <td>Hora: ${fecha.toLocaleTimeString()}</td>
+      </tr>  
+    </table>
+    <p>Vendedor: ${vendedor}</p>
+    <h1>Detalle</h1>
+    <table id="detalleFactura">
+      <tr>
+        <th>Fruta</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+        <th>Subtotal</th>
+        <th>Descuento</th>
+        <th>Total</th>	
+      </tr>
+      <tr>
+        <td>${carrito.detalle.manzanas.nombre}</td>
+        <td>${carrito.detalle.manzanas.kilos}</td>
+        <td>$ ${carrito.detalle.manzanas.precio}</td>
+        <td>$ ${carrito.detalle.manzanas.subtotal}</td>
+        <td>$ ${carrito.detalle.manzanas.descuento}</td>
+        <td>$ ${carrito.detalle.manzanas.total}</td>
+      </tr>
+      <tr>
+        <td>${carrito.detalle.bananos.nombre}</td>
+        <td>${carrito.detalle.bananos.kilos}</td>
+        <td>$ ${carrito.detalle.bananos.precio}</td>
+        <td>$ ${carrito.detalle.bananos.subtotal}</td>
+        <td>$ ${carrito.detalle.bananos.descuento}</td>
+        <td>$ ${carrito.detalle.bananos.total}</td>
+      </tr>	
+      <tr>
+        <td>${carrito.detalle.mangos.nombre}</td>
+        <td>${carrito.detalle.mangos.kilos}</td>
+        <td>$ ${carrito.detalle.mangos.precio}</td>
+        <td>$ ${carrito.detalle.mangos.subtotal}</td>
+        <td>$ ${carrito.detalle.mangos.descuento}</td>
+        <td>$ ${carrito.detalle.mangos.total}</td>
+      </tr>
+      <tr>
+        <td>${carrito.detalle.fresas.nombre}</td>
+        <td>${carrito.detalle.fresas.kilos}</td>
+        <td>$ ${carrito.detalle.fresas.precio}</td>
+        <td>$ ${carrito.detalle.fresas.subtotal}</td>
+        <td>$ ${carrito.detalle.fresas.descuento}</td>
+        <td>$ ${carrito.detalle.fresas.total}</td>
+      </tr>		
+    </table>
+    <br></br>
+    <table id="totalFactura">
+      <tr>
+          <td>Subtotal</td>
+          <td>$ ${totalAPagar-(totalAPagar*0.16)}</td>
+      <tr>
+        <td>IVA</td>
+        <td>$ ${totalAPagar*0.16}</td>
+      <tr>
+        <td class="totalFactura">Total a pagar</td>
+        <td class="totalFactura">$ ${totalAPagar}</td>    
+    </table>
+  </div>
+</body>
+<footer>
+</footer>

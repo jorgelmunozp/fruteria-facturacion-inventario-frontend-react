@@ -309,7 +309,6 @@ function actualizarFactura(factura){
   .then(response => response.json())
 }
 
-
 /********************* Genera el recibo de la factura en pdf  *******************/
 function generarRecibo(totalAPagar,setAlertFactura){
   var options = {             // options: Opciones de configuración del pdf
