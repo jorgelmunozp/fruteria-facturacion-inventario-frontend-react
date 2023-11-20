@@ -48,7 +48,7 @@ export const LoginScreen = () => {
       <h4>Facturación | Inventario</h4>
       <h1><CiLemon className='icon'/><CiShop className='icon'/><CiApple className='icon'/></h1>
       <br/>
-      <div className="d-grid gap-2 col-4 mx-auto">
+      <div className="d-grid gap-2 col-6 mx-auto">
         <input id="user" type='text' value={userInput} onChange={(e) => { setUserInput(e.target.value); setAlertMessage("") }} placeholder='Usuario' autoComplete='off' className='text-center'></input>
         <input id="password" type='password' value={passwordInput} onChange={(e) =>{ setPasswordInput(e.target.value); setAlertMessage("") }} placeholder='Contraseña' autoComplete='off' className='text-center'></input>
         <button className='btn-login btn btn-lg btn-outline-warning shadow-sm rounded-pill' onClick={() => handleLogin() }>
