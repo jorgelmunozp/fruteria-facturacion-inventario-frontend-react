@@ -8,6 +8,7 @@
 </p>
 
 * Demo: [Frutería Facturación Inventario Frontend](https://jorgelmunozp.github.io/fruteria-facturacion-inventario-frontend-react/)
+* Demo: [Frutería Inventario Backend](https://jorgelmunozp.github.io/fruteria-facturacion-inventario-backend-express/)
 
 ***
 
