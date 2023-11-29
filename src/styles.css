@@ -28,7 +28,8 @@ span {
 }
 
 .icon {
-  font-size: 8vmin;
+    color: var(--main-color)!important;
+    font-size: 8vmin;
 }
 
 .thead-light {

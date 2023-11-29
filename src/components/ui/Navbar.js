@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../auth/authContext';
 import { types } from '../../types/types';
 
+import { CiLemon } from 'react-icons/ci';
 
 export const Navbar = ({name}) => {
 
@@ -19,6 +20,7 @@ export const Navbar = ({name}) => {
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
             <div className="container-fluid">
                 &nbsp;
+                <CiLemon className='icon fs-4'/>&nbsp;
                 <Link className="navbar-brand" to="/fruteria-facturacion-inventario-frontend-react">La Frutería</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
