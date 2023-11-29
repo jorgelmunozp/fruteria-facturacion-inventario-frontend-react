@@ -21,6 +21,7 @@ a svg {
 }
 h1,h2,h3,h4,h5,h6 {
     color: var(--main-color)!important;
+    font-size: inherit;
 }
 span {
     color: var(--main-color)!important;
@@ -41,6 +42,7 @@ th {
 td {
     text-align: center;
 }
+
 .totalCarrito {
     background-color: var(--main-color) !important;
     color: var(--white-color) !important;
@@ -117,7 +119,7 @@ input[type=password]{
   input[type=number]{
     color: var(--main-color);
     width: 95%;
-    height: 16vmin;
+    height: 14vmin;
     border: none;
     padding: 15px 0 15px 15px;
     text-align: center;
@@ -128,7 +130,7 @@ input[type=password]{
   input[type=number]::-webkit-inner-spin-button, 
   input[type=number]::-webkit-outer-spin-button { 
     opacity: 1;
-    height: 16vmin;
+    height: 15vmin;
     padding: 0 7vmin 0 7vmin;
     font-size: inherit;
     cursor: pointer;
@@ -141,7 +143,7 @@ input[type=password]{
     color: var(--white-color);
     background-color: var(--dark-color);
     width: 100%;
-    font-size: 2.5vmin;
+    font-size: inherit;
     cursor: pointer;
   }
   input[type=submit]:hover{
