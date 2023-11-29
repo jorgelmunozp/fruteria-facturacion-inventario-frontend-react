@@ -20,7 +20,7 @@ export const CarritoScreen = () => {
   return (
     <>
       <hr />
-      <center><h3><CiShoppingCart className='fs-1'/></h3></center> 
+      <center><h3><CiShoppingCart className='fs-2'/></h3></center> 
       <hr />
       <div className='row'>
         <div>
