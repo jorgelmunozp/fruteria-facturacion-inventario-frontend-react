@@ -6,8 +6,5 @@ export const PublicRoute = ({ children }) => {
 
     const { user } = useContext(AuthContext);
 
-
-    return user.logged
-        ? <Navigate to='/fruteria-facturacion-inventario-frontend-react' /> 
-        : children
+    return user.logged ? <Navigate to='/fruteria-facturacion-inventario-frontend-react' /> : children
 }

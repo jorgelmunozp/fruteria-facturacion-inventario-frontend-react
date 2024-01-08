@@ -23,6 +23,14 @@ h1,h2,h3,h4,h5,h6 {
     color: var(--main-color)!important;
     font-size: inherit;
 }
+
+.century-gothic { font-family: 'CenturyGothic', 'Century Gothic' !important; }
+
+.main-color { color: var(--main-color)!important; }
+.background-main-color { background-color: var(--main-color)!important; }
+.bg-main-transparent-color { background-color: var(--main-transparent-color)!important; }
+.red-color { color: var(--red-color)!important; }
+
 span {
     color: var(--main-color)!important;
 }
