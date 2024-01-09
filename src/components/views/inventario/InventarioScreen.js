@@ -1,7 +1,6 @@
 import React from 'react';
-import { formatterPeso } from '../../helpers/formatterPeso';
-import { formatterMiles } from '../../helpers/formatterMiles';
-import { CiShoppingCart } from 'react-icons/ci';
+import { formatterPeso } from '../../../helpers/formatterPeso';
+import { formatterMiles } from '../../../helpers/formatterMiles';
 
 const urlApiInventario = process.env.REACT_APP_API_INVENTARIO;
 const urlApiProveedores = process.env.REACT_APP_API_PROVEEDORES;
@@ -15,24 +14,23 @@ await fetch(urlApiProveedores)                          //Leer API tabla FACTURA
     .then(response => response.json())
     .then(data => frutas = data)
 
-export const CarritoScreen = () => {
+export const InventarioScreen = () => {
 
   return (
     <>
       <hr />
-      <center><h3><CiShoppingCart className='fs-2'/></h3></center> 
+      <center><h3>Inventario</h3></center> 
       <hr />
-      <div className='row'>
-        <div>
-          <center>
+      <div className='row'> 
+        <center>
+          <div>
             <table className='table table-sm table-bordered table-striped w-100'>
               <thead className="thead-light">
                 <tr>
                   <th>Fruta</th>
+                  <th>Disponibilidad</th>
+                  <th>Ventas</th>
                   <th>Kilos</th>
-                  <th>Precio</th>
-                  <th>Subtotal</th>
-                  <th>Descuento</th>
                   <th>Total</th>
                 </tr>
               </thead>
@@ -43,14 +41,12 @@ export const CarritoScreen = () => {
                   <td>{formatterMiles.format(inventario.manzanas.ventas)}</td>
                   <td>{formatterMiles.format(inventario.manzanas.kilos)}</td>
                   <td>{formatterPeso.format(inventario.manzanas.total)}</td>
-                  <td>{formatterPeso.format(inventario.manzanas.total)}</td>
                 </tr>
                 <tr>
                   <td>{inventario.bananos.nombre}</td>
                   <td>{formatterMiles.format(inventario.bananos.cantidad)}</td>
                   <td>{formatterMiles.format(inventario.bananos.ventas)}</td>
                   <td>{formatterMiles.format(inventario.bananos.kilos)}</td>
-                  <td>{formatterPeso.format(inventario.bananos.total)}</td>
                   <td>{formatterPeso.format(inventario.bananos.total)}</td>
                 </tr>
                 <tr>
@@ -59,7 +55,6 @@ export const CarritoScreen = () => {
                     <td>{formatterMiles.format(inventario.mangos.ventas)}</td>
                     <td>{formatterMiles.format(inventario.mangos.kilos)}</td>
                     <td>{formatterPeso.format(inventario.mangos.total)}</td>
-                    <td>{formatterPeso.format(inventario.mangos.total)}</td>
                 </tr>
                 <tr>
                   <td>{inventario.fresas.nombre}</td>
@@ -67,13 +62,53 @@ export const CarritoScreen = () => {
                   <td>{formatterMiles.format(inventario.fresas.ventas)}</td>
                   <td>{formatterMiles.format(inventario.fresas.kilos)}</td>
                   <td>{formatterPeso.format(inventario.fresas.total)}</td>
-                  <td>{formatterPeso.format(inventario.fresas.total)}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+        <hr />
+        <div >
+            <h4>Proveedores</h4>
+            <hr />
+            <table className='table table-sm table-bordered table-striped w-100'>
+              <thead className="thead-light">
+                <tr>
+                  <th scope="col">Fruta</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col">Valor (K)</th>
+                  <th scope="col">Proveedor</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td scope="row">{frutas.fruta1.nombre}</td>
+                  <td>{frutas.fruta1.descripcion}</td>
+                  <td>{formatterPeso.format(frutas.fruta1.valorkilo)}</td>
+                  <td>{frutas.fruta1.proveedor}</td>
+                </tr>
+                <tr>
+                  <td>{frutas.fruta2.nombre}</td>
+                  <td>{frutas.fruta2.descripcion}</td>
+                  <td>{formatterPeso.format(frutas.fruta2.valorkilo)}</td>
+                  <td>{frutas.fruta2.proveedor}</td>
+                </tr>
+                <tr>
+                    <td>{frutas.fruta3.nombre}</td>
+                    <td>{frutas.fruta3.descripcion}</td>
+                    <td>{formatterPeso.format(frutas.fruta3.valorkilo)}</td>
+                    <td>{frutas.fruta3.proveedor}</td>
+                </tr>
+                <tr>
+                  <td>{frutas.fruta4.nombre}</td>
+                  <td>{frutas.fruta4.descripcion}</td>
+                  <td>{formatterPeso.format(frutas.fruta4.valorkilo)}</td>
+                  <td>{frutas.fruta4.proveedor}</td>
                 </tr>
               </tbody>
             </table>
             <hr />
-          </center>
-        </div>
+          </div>
+        </center>
       </div>
     </>
   )

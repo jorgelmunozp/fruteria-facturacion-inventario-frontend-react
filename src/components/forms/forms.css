@@ -1,0 +1,17 @@
+/****** Forms ******/
+/* InputText */ 
+.input:focus { border-width: 2px !important; }
+/* All forms */
+.form-floating>.form-control { padding-left: 0.75rem !important; }
+
+/* Dropdown */
+.dropdown-toggle::after { 
+    position: absolute;
+    right: 0.75rem;
+    top: 1.625rem;
+}
+.min-width-10 { min-width: 11.5rem; }
+
+.w-sm-100 {}
+@media (max-width: 576px) { .w-sm-100 { width: 100% !important;} }
+

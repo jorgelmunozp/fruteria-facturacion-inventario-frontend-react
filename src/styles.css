@@ -7,22 +7,21 @@
     --white-color: #fff;
 }
 
-*{
-    font: 2.5vmin 'Century Gothic', Helvetica, Arial, sans-serif;
+*{ font-family: 'CenturyGothic', 'Century Gothic'; scroll-behavior: smooth; }
+@font-face {
+    font-family: "CenturyGothic";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../src/assets/fonts/CenturyGothic.ttf") format("truetype");
 }
-a { 
-    text-decoration: none;
-}
-.active {
-    color: var(--main-color)!important;
-}
-a svg {
-    color: var(--main-color)!important;
-}
-h1,h2,h3,h4,h5,h6 {
-    color: var(--main-color)!important;
-    font-size: inherit;
-}
+
+a { text-decoration: none; }
+
+.active { color: var(--main-color)!important; }
+
+a svg { color: var(--main-color)!important; }
+
+h1,h2,h3,h4,h5,h6 { color: var(--main-color)!important; }
 
 .century-gothic { font-family: 'CenturyGothic', 'Century Gothic' !important; }
 
@@ -31,9 +30,7 @@ h1,h2,h3,h4,h5,h6 {
 .bg-main-transparent-color { background-color: var(--main-transparent-color)!important; }
 .red-color { color: var(--red-color)!important; }
 
-span {
-    color: var(--main-color)!important;
-}
+span { color: var(--main-color)!important; }
 
 .icon {
     color: var(--main-color)!important;

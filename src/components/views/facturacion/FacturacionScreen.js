@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { formatterPeso } from '../../helpers/formatterPeso';
-import { formatterMiles } from '../../helpers/formatterMiles';
+import { formatterPeso } from '../../../helpers/formatterPeso';
+import { formatterMiles } from '../../../helpers/formatterMiles';
 import { CiShoppingCart } from 'react-icons/ci';
 
 const urlApiInventario = process.env.REACT_APP_API_INVENTARIO;

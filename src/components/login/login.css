@@ -1,0 +1,33 @@
+:root {
+    --dark-color: #212529;
+    --dark-transparent-color: rgba(33,37,41, 0.25);
+    --gray-color: #aaaaaa;  
+    --lightgray-color: #dddddd;
+    --lightgray-transparent-color: rgba(221,221,221, 0.25);
+    --main-color: #5285c5;
+    --main-transparent-color: rgba(82, 133, 197, 0.25);
+    --red-color: #f00;
+    --white-color: #fff;
+}
+/****** LOGIN ******/
+.input-login {
+    background-color: var(--white-color);
+    border-color: var(--gray-color)!important;
+}
+
+.btn-login {
+    color: var(--main-color);
+    border-color: var(--main-color)!important;
+}
+.btn-login:hover {
+    color: var(--white-color);
+    background-color: var(--main-color);
+}
+
+input::placeholder { color: var(--gray-color); }
+
+.input:focus { border-color: var(--main-color); border-width: 1.25px;}
+
+.button:hover{ color:var(--dark-color) !important; background-color:var(--lightgray-color); }
+
+.alertMessage { color: var(--gray-color); }
