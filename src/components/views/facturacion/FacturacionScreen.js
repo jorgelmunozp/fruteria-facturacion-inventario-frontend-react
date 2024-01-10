@@ -76,10 +76,10 @@ const AgregarAlCarrito = (cantidadManzanas,cantidadBananos,cantidadMangos,cantid
 
 const Descuento = (cantidadDeseada,valorKilo) => {
   let descuento;
-  if(cantidadDeseada>=0 && cantidadDeseada<=2){ descuento = cantidadDeseada * valorKilo * descuentos.descuento1.descuento; }
-    else if(cantidadDeseada>2 && cantidadDeseada<=5){ descuento = cantidadDeseada * valorKilo * descuentos.descuento2.descuento/100; } 
-    else if(cantidadDeseada>5 && cantidadDeseada<=10){ descuento = cantidadDeseada * valorKilo * descuentos.descuento3.descuento/100; } 
-    else if(cantidadDeseada>10){ descuento = cantidadDeseada * valorKilo * descuentos.descuento4.descuento/100; }
+  if(cantidadDeseada>=0 && cantidadDeseada<=2){ descuento = cantidadDeseada * valorKilo * descuentos[0].detail.descuento; }
+    else if(cantidadDeseada>2 && cantidadDeseada<=5){ descuento = cantidadDeseada * valorKilo * descuentos[1].detail.descuento/100; } 
+    else if(cantidadDeseada>5 && cantidadDeseada<=10){ descuento = cantidadDeseada * valorKilo * descuentos[2].detail.descuento/100; } 
+    else if(cantidadDeseada>10){ descuento = cantidadDeseada * valorKilo * descuentos[3].detail.descuento/100; }
   return descuento;
 }
 
@@ -501,8 +501,8 @@ export const FacturacionScreen = () => {
   const [alertMessage,setAlertMessage] = useState("");
   const [alertFactura,setAlertFactura] = useState("");
 
-  const cantidades = [ cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas ];
-  const descuentos = [ descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas ];
+  const cantidadesFrutas = [ cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas ];
+  const descuentosFrutas = [ descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas ];
 
   return (
     <>
@@ -549,7 +549,7 @@ export const FacturacionScreen = () => {
             <div>
 
             <h5 className='my-4'>Carrito de Compras</h5>
-            <CarritoBar cantidades={cantidades} descuentos={descuentos} cantidadManzanas={cantidadManzanas} descuentoManzanas={descuentoManzanas} cantidadBananos={cantidadBananos} descuentoBananos={descuentoBananos} cantidadMangos={cantidadMangos} descuentoMangos={descuentoMangos} cantidadFresas={cantidadFresas} descuentoFresas={descuentoFresas} proveedores={proveedores} />
+            <CarritoBar cantidades={cantidadesFrutas} descuentos={descuentosFrutas} cantidadManzanas={cantidadManzanas} descuentoManzanas={descuentoManzanas} cantidadBananos={cantidadBananos} descuentoBananos={descuentoBananos} cantidadMangos={cantidadMangos} descuentoMangos={descuentoMangos} cantidadFresas={cantidadFresas} descuentoFresas={descuentoFresas} proveedores={proveedores} />
           {/** Buttons */}
             <table className='w-100'>
               <tbody>
@@ -572,22 +572,12 @@ export const FacturacionScreen = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>0 - 2</td>
-                    <td>0 %</td>
-                  </tr>
-                  <tr>
-                    <td>3 - 5</td>
-                    <td>5 %   </td>
-                  </tr>
-                  <tr>
-                    <td>6 - 10</td>
-                    <td>10 %</td>
-                  </tr>
-                  <tr>
-                    <td>11+</td>
-                    <td>15 %</td>
-                  </tr>
+                  { descuentos.map((descuento,index) => (
+                    <tr key={'desc' + index}>
+                      <td>{descuento.detail.cantidad}</td>
+                      <td>{descuento.detail.descuento}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
