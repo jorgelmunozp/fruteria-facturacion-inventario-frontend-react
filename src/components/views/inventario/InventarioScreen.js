@@ -19,7 +19,7 @@ export const InventarioScreen = () => {
   return (
     <>
       <center><h5 className='my-4'>Inventario</h5></center> 
-      <div className='row'> 
+      <div className='row overflow-auto'> 
         <center>
           <div>
             <table className='table table-sm table-bordered table-striped w-100'>
