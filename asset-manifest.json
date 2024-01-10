@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/fruteria-facturacion-inventario-frontend-react/static/css/main.8e071190.css",
-    "main.js": "/fruteria-facturacion-inventario-frontend-react/static/js/main.541d3776.js",
+    "main.js": "/fruteria-facturacion-inventario-frontend-react/static/js/main.1070563a.js",
     "static/media/CenturyGothic.ttf": "/fruteria-facturacion-inventario-frontend-react/static/media/CenturyGothic.b1b792bab1bff8f27ba7.ttf",
     "index.html": "/fruteria-facturacion-inventario-frontend-react/index.html",
     "main.8e071190.css.map": "/fruteria-facturacion-inventario-frontend-react/static/css/main.8e071190.css.map",
-    "main.541d3776.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/main.541d3776.js.map"
+    "main.1070563a.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/main.1070563a.js.map"
   },
   "entrypoints": [
     "static/css/main.8e071190.css",
-    "static/js/main.541d3776.js"
+    "static/js/main.1070563a.js"
   ]
 }
