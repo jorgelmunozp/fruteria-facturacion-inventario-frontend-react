@@ -19,9 +19,9 @@ export const InventarioScreen = () => {
   return (
     <>
       <center><h5 className='my-4'>Inventario</h5></center> 
-      <div className='row overflow-auto'> 
+      <div className='row'> 
         <center>
-          <div>
+          <div className='overflow-auto'>
             <table className='table table-sm table-bordered table-striped w-100'>
               <thead className="thead-light">
                 <tr>
@@ -67,42 +67,44 @@ export const InventarioScreen = () => {
           <hr />
           <div >
             <h5 className='my-4'>Proveedores</h5>
-            <table className='table table-sm table-bordered table-striped w-100'>
-              <thead className="thead-light">
-                <tr>
-                  <th scope="col">Fruta</th>
-                  <th scope="col">Descripción</th>
-                  <th scope="col">Valor (K)</th>
-                  <th scope="col">Proveedor</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td scope="row">{frutas.fruta1.nombre}</td>
-                  <td>{frutas.fruta1.descripcion}</td>
-                  <td>{formatterPeso.format(frutas.fruta1.valorkilo)}</td>
-                  <td className='text-nowrap text-truncate'>{frutas.fruta1.proveedor}</td>
-                </tr>
-                <tr>
-                  <td>{frutas.fruta2.nombre}</td>
-                  <td>{frutas.fruta2.descripcion}</td>
-                  <td>{formatterPeso.format(frutas.fruta2.valorkilo)}</td>
-                  <td className='text-nowrap text-truncate'>{frutas.fruta2.proveedor}</td>
-                </tr>
-                <tr>
-                    <td>{frutas.fruta3.nombre}</td>
-                    <td>{frutas.fruta3.descripcion}</td>
-                    <td>{formatterPeso.format(frutas.fruta3.valorkilo)}</td>
-                    <td className='text-nowrap text-truncate'>{frutas.fruta3.proveedor}</td>
-                </tr>
-                <tr>
-                  <td>{frutas.fruta4.nombre}</td>
-                  <td>{frutas.fruta4.descripcion}</td>
-                  <td>{formatterPeso.format(frutas.fruta4.valorkilo)}</td>
-                  <td className='text-nowrap text-truncate'>{frutas.fruta4.proveedor}</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className='overflow-auto'>
+              <table className='table table-sm table-bordered table-striped w-100'>
+                <thead className="thead-light">
+                  <tr>
+                    <th scope="col">Fruta</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Valor (K)</th>
+                    <th scope="col">Proveedor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row">{frutas.fruta1.nombre}</td>
+                    <td>{frutas.fruta1.descripcion}</td>
+                    <td>{formatterPeso.format(frutas.fruta1.valorkilo)}</td>
+                    <td className='text-nowrap text-truncate'>{frutas.fruta1.proveedor}</td>
+                  </tr>
+                  <tr>
+                    <td>{frutas.fruta2.nombre}</td>
+                    <td>{frutas.fruta2.descripcion}</td>
+                    <td>{formatterPeso.format(frutas.fruta2.valorkilo)}</td>
+                    <td className='text-nowrap text-truncate'>{frutas.fruta2.proveedor}</td>
+                  </tr>
+                  <tr>
+                      <td>{frutas.fruta3.nombre}</td>
+                      <td>{frutas.fruta3.descripcion}</td>
+                      <td>{formatterPeso.format(frutas.fruta3.valorkilo)}</td>
+                      <td className='text-nowrap text-truncate'>{frutas.fruta3.proveedor}</td>
+                  </tr>
+                  <tr>
+                    <td>{frutas.fruta4.nombre}</td>
+                    <td>{frutas.fruta4.descripcion}</td>
+                    <td>{formatterPeso.format(frutas.fruta4.valorkilo)}</td>
+                    <td className='text-nowrap text-truncate'>{frutas.fruta4.proveedor}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <hr />
           </div>
         </center>
