@@ -548,10 +548,10 @@ export const FacturacionScreen = () => {
                         </table>
                       </center>
                     </td>
-                    <td><input id="cantidadDeseada" type="number" name="cantidadDeseada" defaultValue={0} min="0" placeholder="Kilos fruta" autoComplete="off" onChange={() => setAlertMessage("")}/></td>
+                    <td><input id="cantidadDeseada" type="number" name="cantidadDeseada" defaultValue={0} min="0" placeholder="Kilos fruta" autoComplete="off" onChange={() => setAlertMessage("")} className='w-100 py-5'/></td>
                     <td>
-                      <button className='w-100 py-1' onClick={() => AgregarAlCarrito(cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas,setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas,setTotalManzanas,setTotalBananos,setTotalMangos,setTotalFresas,setAlertMessage)}>
-                        <CiShoppingCart className='fs-3'/>
+                      <button className='w-100 py-1 px-3' onClick={() => AgregarAlCarrito(cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas,setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas,setTotalManzanas,setTotalBananos,setTotalMangos,setTotalFresas,setAlertMessage)}>
+                        <CiShoppingCart className='fs-3 my-3'/>
                       </button>
                       <p className='alertMessage'>{ alertMessage }</p>
                     </td>

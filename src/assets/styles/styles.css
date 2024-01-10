@@ -42,7 +42,7 @@ span { color: var(--main-color)!important; }
     color: var(--white-color)!important;
 }
 th {
-    font-size: 2.25vmin !important;
+    font-size: 2.5vmin !important;
     text-align: center;
 }
 td { text-align: center; }
@@ -99,20 +99,16 @@ input[type="radio"]:focus {
 
 input[type=number]{
   color: var(--main-color);
-  width: 95%;
-  height: 14vmin;
   border: none;
-  padding: 15px 0 15px 15px;
   text-align: center;
-  letter-spacing: 0.5vmin;
   font-size: inherit;
   font-weight: bold;
 }
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   opacity: 1;
-  height: 15vmin;
-  padding: 0 7vmin 0 7vmin;
+  height: 7rem;
+  padding: 1vmin 7vmin 1vmin 7vmin;
   font-size: inherit;
   cursor: pointer;
 }
