@@ -44,20 +44,20 @@ const AgregarAlCarrito = (cantidadManzanas,cantidadBananos,cantidadMangos,cantid
     cantidadDeseada = cantidadSelector.value;
 
     if(frutaDeseada.toLowerCase() === "manzana") { 
-      if(cantidadDeseada <= inventario.manzanas.cantidad){ setCantidadManzanas(cantidadDeseada); setDescuentoManzanas(Descuento(cantidadDeseada,proveedores[0].detail.valorkilo)); }
-      else if(cantidadDeseada > inventario.manzanas.cantidad){ setCantidadManzanas(inventario.manzanas.cantidad); setDescuentoManzanas(Descuento(cantidadDeseada,proveedores[0].detail.valorkilo)); setAlertMessage("Hay " + inventario.manzanas.cantidad + " kilos"); }
+      if(cantidadDeseada <= inventario[0].detail.cantidad){ setCantidadManzanas(cantidadDeseada); setDescuentoManzanas(Descuento(cantidadDeseada,proveedores[0].detail.valorkilo)); }
+      else if(cantidadDeseada > inventario[0].detail.cantidad){ setCantidadManzanas(inventario[0].detail.cantidad); setDescuentoManzanas(Descuento(cantidadDeseada,proveedores[0].detail.valorkilo)); setAlertMessage("Hay " + inventario.manzanas.cantidad + " kilos"); }
       setTotalManzanas(cantidadDeseada * proveedores[0].detail.valorkilo - Descuento(cantidadDeseada,proveedores[0].detail.valorkilo));
     } else if(frutaDeseada.toLowerCase() === "banano") { 
-      if(cantidadDeseada <= inventario.bananos.cantidad){ setCantidadBananos(cantidadDeseada); setDescuentoBananos(Descuento(cantidadDeseada,proveedores[1].detail.valorkilo)); }
-      else if(cantidadDeseada > inventario.bananos.cantidad){ setCantidadBananos(inventario.bananos.cantidad); setDescuentoBananos(Descuento(cantidadDeseada,proveedores[1].detail.valorkilo)); setAlertMessage("Hay " + inventario.bananos.cantidad + " kilos"); }
+      if(cantidadDeseada <= inventario[1].detail.cantidad){ setCantidadBananos(cantidadDeseada); setDescuentoBananos(Descuento(cantidadDeseada,proveedores[1].detail.valorkilo)); }
+      else if(cantidadDeseada > inventario[1].detail.cantidad){ setCantidadBananos(inventario.bananos.cantidad); setDescuentoBananos(Descuento(cantidadDeseada,proveedores[1].detail.valorkilo)); setAlertMessage("Hay " + inventario.bananos.cantidad + " kilos"); }
       setTotalBananos(cantidadDeseada * proveedores[1].detail.valorkilo - Descuento(cantidadDeseada,proveedores[1].detail.valorkilo));
     } else if(frutaDeseada.toLowerCase() === "mango") { 
-      if(cantidadDeseada <= inventario.mangos.cantidad){ setCantidadMangos(cantidadDeseada); setDescuentoMangos(Descuento(cantidadDeseada,proveedores[2].detail.valorkilo)); }
-      else if(cantidadDeseada > inventario.mangos.cantidad){ setCantidadMangos(inventario.mangos.cantidad); setDescuentoMangos(Descuento(cantidadDeseada,proveedores[2].detail.valorkilo)); setAlertMessage("Hay " + inventario.mangos.cantidad + " kilos"); }
+      if(cantidadDeseada <= inventario[2].detail.cantidad){ setCantidadMangos(cantidadDeseada); setDescuentoMangos(Descuento(cantidadDeseada,proveedores[2].detail.valorkilo)); }
+      else if(cantidadDeseada > inventario[2].detail.cantidad){ setCantidadMangos(inventario.mangos.cantidad); setDescuentoMangos(Descuento(cantidadDeseada,proveedores[2].detail.valorkilo)); setAlertMessage("Hay " + inventario.mangos.cantidad + " kilos"); }
       setTotalMangos(cantidadDeseada * proveedores[2].detail.valorkilo - Descuento(cantidadDeseada,proveedores[2].detail.valorkilo));
     } else if(frutaDeseada.toLowerCase() === "fresa") { 
-      if(cantidadDeseada <= inventario.fresas.cantidad){ setCantidadFresas(cantidadDeseada); setDescuentoFresas(Descuento(cantidadDeseada,proveedores[3].detail.valorkilo)); }
-      else if(cantidadDeseada > inventario.fresas.cantidad){ setCantidadFresas(inventario.fresas.cantidad); setDescuentoFresas(Descuento(cantidadDeseada,proveedores[3].detail.valorkilo)); setAlertMessage("Hay " + inventario.fresas.cantidad + " kilos"); }
+      if(cantidadDeseada <= inventario[3].detail.cantidad){ setCantidadFresas(cantidadDeseada); setDescuentoFresas(Descuento(cantidadDeseada,proveedores[3].detail.valorkilo)); }
+      else if(cantidadDeseada > inventario[3].detail.cantidad){ setCantidadFresas(inventario.fresas.cantidad); setDescuentoFresas(Descuento(cantidadDeseada,proveedores[3].detail.valorkilo)); setAlertMessage("Hay " + inventario.fresas.cantidad + " kilos"); }
       setTotalFresas(cantidadDeseada * proveedores[3].detail.valorkilo - Descuento(cantidadDeseada,proveedores[3].detail.valorkilo));
     }
     document.getElementById("Manzana").checked = false;
