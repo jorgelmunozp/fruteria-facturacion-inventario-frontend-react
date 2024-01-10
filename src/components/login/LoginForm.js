@@ -11,7 +11,7 @@ export const LoginForm = ({ userInput,passwordInput,alertMessage,setUserInput,se
           <button className='btn-login btn btn-md btn-outline-primary border border-2 my-1 py-3 rounded fw-bolder shadow-sm' onClick={ handleLogin }>
             { buttonTitle }
           </button>
-          <p className='alertMessage'>{ alertMessage }</p>
+          <p className='text-muted'>{ alertMessage }</p>
         </div>
     </div>
   )

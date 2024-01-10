@@ -553,7 +553,7 @@ export const FacturacionScreen = () => {
                       <button className='w-100 py-1 px-3' onClick={() => AgregarAlCarrito(cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas,setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas,setTotalManzanas,setTotalBananos,setTotalMangos,setTotalFresas,setAlertMessage)}>
                         <CiShoppingCart className='fs-3 my-3'/>
                       </button>
-                      <p className='alertMessage'>{ alertMessage }</p>
+                      <p className='text-dark'>{ alertMessage }</p>
                     </td>
                   </tr>
                 </tbody>
@@ -615,6 +615,11 @@ export const FacturacionScreen = () => {
                           cantidadMangos * proveedores.fruta3.valorkilo - descuentoMangos +
                           cantidadFresas * proveedores.fruta4.valorkilo - descuentoFresas )}</td>
                   </tr>
+                </tbody>
+              </table>
+            {/** Buttons */}
+              <table className='w-100'>
+                <tbody>
                   <tr> 
                     <td colSpan="6">
                       <button className='w-100 py-2' onClick={() => Facturar(cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas,totalManzanas,totalBananos,totalMangos,totalFresas,totalAPagar,setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas,setTotalManzanas,setTotalBananos,setTotalMangos,setTotalFresas,setTotalAPagar,setAlertFactura)}>Facturar</button>
