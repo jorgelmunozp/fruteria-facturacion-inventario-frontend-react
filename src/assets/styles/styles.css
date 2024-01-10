@@ -42,7 +42,7 @@ span { color: var(--main-color)!important; }
     color: var(--white-color)!important;
 }
 th {
-    font-size: 3vmin !important;
+    /* font-size: 3vmin !important; */
     font-weight: normal;
     text-align: center;
 }
