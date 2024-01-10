@@ -18,9 +18,7 @@ export const InventarioScreen = () => {
 
   return (
     <>
-      <hr />
-      <center><h3>Inventario</h3></center> 
-      <hr />
+      <center><h5 className='my-4'>Inventario</h5></center> 
       <div className='row'> 
         <center>
           <div>
@@ -65,11 +63,10 @@ export const InventarioScreen = () => {
                 </tr>
               </tbody>
             </table>
-        </div>
-        <hr />
-        <div >
-            <h4>Proveedores</h4>
-            <hr />
+          </div>
+          <hr />
+          <div >
+            <h5 className='my-4'>Proveedores</h5>
             <table className='table table-sm table-bordered table-striped w-100'>
               <thead className="thead-light">
                 <tr>
@@ -102,7 +99,7 @@ export const InventarioScreen = () => {
                   <td>{frutas.fruta4.nombre}</td>
                   <td>{frutas.fruta4.descripcion}</td>
                   <td>{formatterPeso.format(frutas.fruta4.valorkilo)}</td>
-                  <td>{frutas.fruta4.proveedor}</td>
+                  <td className='text-nowrap text-truncate'>{frutas.fruta4.proveedor}</td>
                 </tr>
               </tbody>
             </table>

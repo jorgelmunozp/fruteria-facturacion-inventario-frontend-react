@@ -19,9 +19,7 @@ export const CarritoScreen = () => {
 
   return (
     <>
-      <hr />
-      <center><h3><CiShoppingCart className='fs-2'/></h3></center> 
-      <hr />
+      <center><h3><CiShoppingCart className='fs-2 mt-4 mb-2'/></h3></center> 
       <div className='row'>
         <div>
           <center>
