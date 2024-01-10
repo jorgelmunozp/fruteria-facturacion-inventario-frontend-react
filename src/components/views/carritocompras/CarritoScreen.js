@@ -21,8 +21,8 @@ export const CarritoScreen = () => {
     <>
       <center><h3><CiShoppingCart className='fs-2 mt-4 mb-2'/></h3></center> 
       <div className='row'>
-        <div>
-          <center>
+      <center>
+        <div className='overflow-auto'>
             <table className='table table-sm table-bordered table-striped w-100'>
               <thead className="thead-light">
                 <tr>
@@ -70,8 +70,8 @@ export const CarritoScreen = () => {
               </tbody>
             </table>
             <hr />
-          </center>
-        </div>
+          </div>
+        </center>
       </div>
     </>
   )

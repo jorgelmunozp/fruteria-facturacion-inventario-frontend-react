@@ -562,94 +562,98 @@ export const FacturacionScreen = () => {
             <div>
 
             <h5 className='my-4'>Carrito de Compras</h5>
-            <table className='table table-sm table-bordered table-striped w-100'>
-              <thead className="thead-light">
-                <tr>
-                  <th>Fruta</th>
-                  <th>Kilos</th>
-                  <th>Precio</th>
-                  <th>Subtotal</th>
-                  <th>Descuento</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Manzanas</td>
-                  <td>{formatterMiles.format(cantidadManzanas)}</td>
-                  <td>{formatterPeso.format(proveedores.fruta1.valorkilo)}</td>
-                  <td>{formatterPeso.format(cantidadManzanas * proveedores.fruta1.valorkilo)}</td>
-                  <td>{formatterPeso.format(descuentoManzanas)}</td>
-                  <td>{formatterPeso.format(cantidadManzanas * proveedores.fruta1.valorkilo - descuentoManzanas)}</td>
-                </tr>
-                <tr>
-                  <td>Bananos</td>
-                  <td>{formatterMiles.format(cantidadBananos)}</td>
-                  <td>{formatterPeso.format(proveedores.fruta2.valorkilo)}</td>
-                  <td>{formatterPeso.format(cantidadBananos * proveedores.fruta2.valorkilo)}</td>
-                  <td>{formatterPeso.format(descuentoBananos)}</td>
-                  <td>{formatterPeso.format(cantidadBananos * proveedores.fruta2.valorkilo - descuentoBananos)}</td>
-                </tr>
-                <tr>
-                  <td>Mangos</td>
-                  <td>{formatterMiles.format(cantidadMangos)}</td>
-                  <td>{formatterPeso.format(proveedores.fruta3.valorkilo)}</td>
-                  <td>{formatterPeso.format(cantidadMangos * proveedores.fruta3.valorkilo)}</td>
-                  <td>{formatterPeso.format(descuentoMangos)}</td>
-                  <td>{formatterPeso.format(cantidadMangos * proveedores.fruta3.valorkilo - descuentoMangos)}</td>
-                </tr>
-                <tr>
-                  <td>Fresas</td>
-                  <td>{formatterMiles.format(cantidadFresas)}</td>
-                  <td>{formatterPeso.format(proveedores.fruta4.valorkilo)}</td>
-                  <td>{formatterPeso.format(cantidadFresas * proveedores.fruta4.valorkilo)}</td>
-                  <td>{formatterPeso.format(descuentoFresas)}</td>
-                  <td>{formatterPeso.format(cantidadFresas * proveedores.fruta4.valorkilo - descuentoFresas)}</td>
-                </tr>
-                <tr>
-                  <td colSpan="5" className='totalCarrito'>Total a pagar</td>
-                  <td className='totalCarrito'>{ formatterPeso.format(
-                        cantidadManzanas * proveedores.fruta1.valorkilo - descuentoManzanas +
-                        cantidadBananos * proveedores.fruta2.valorkilo - descuentoBananos +
-                        cantidadMangos * proveedores.fruta3.valorkilo - descuentoMangos +
-                        cantidadFresas * proveedores.fruta4.valorkilo - descuentoFresas )}</td>
-                </tr>
-                <tr> 
-                  <td colSpan="6">
-                    <button className='w-100 py-2' onClick={() => Facturar(cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas,totalManzanas,totalBananos,totalMangos,totalFresas,totalAPagar,setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas,setTotalManzanas,setTotalBananos,setTotalMangos,setTotalFresas,setTotalAPagar,setAlertFactura)}>Facturar</button>
-                    <button className='w-100 py-2'>Cancelar</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <div className='overflow-auto'>
+              <table className='table table-sm table-bordered table-striped w-100'>
+                <thead className="thead-light">
+                  <tr>
+                    <th>Fruta</th>
+                    <th>Kilos</th>
+                    <th>Precio</th>
+                    <th>Subtotal</th>
+                    <th>Descuento</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Manzanas</td>
+                    <td>{formatterMiles.format(cantidadManzanas)}</td>
+                    <td>{formatterPeso.format(proveedores.fruta1.valorkilo)}</td>
+                    <td>{formatterPeso.format(cantidadManzanas * proveedores.fruta1.valorkilo)}</td>
+                    <td>{formatterPeso.format(descuentoManzanas)}</td>
+                    <td>{formatterPeso.format(cantidadManzanas * proveedores.fruta1.valorkilo - descuentoManzanas)}</td>
+                  </tr>
+                  <tr>
+                    <td>Bananos</td>
+                    <td>{formatterMiles.format(cantidadBananos)}</td>
+                    <td>{formatterPeso.format(proveedores.fruta2.valorkilo)}</td>
+                    <td>{formatterPeso.format(cantidadBananos * proveedores.fruta2.valorkilo)}</td>
+                    <td>{formatterPeso.format(descuentoBananos)}</td>
+                    <td>{formatterPeso.format(cantidadBananos * proveedores.fruta2.valorkilo - descuentoBananos)}</td>
+                  </tr>
+                  <tr>
+                    <td>Mangos</td>
+                    <td>{formatterMiles.format(cantidadMangos)}</td>
+                    <td>{formatterPeso.format(proveedores.fruta3.valorkilo)}</td>
+                    <td>{formatterPeso.format(cantidadMangos * proveedores.fruta3.valorkilo)}</td>
+                    <td>{formatterPeso.format(descuentoMangos)}</td>
+                    <td>{formatterPeso.format(cantidadMangos * proveedores.fruta3.valorkilo - descuentoMangos)}</td>
+                  </tr>
+                  <tr>
+                    <td>Fresas</td>
+                    <td>{formatterMiles.format(cantidadFresas)}</td>
+                    <td>{formatterPeso.format(proveedores.fruta4.valorkilo)}</td>
+                    <td>{formatterPeso.format(cantidadFresas * proveedores.fruta4.valorkilo)}</td>
+                    <td>{formatterPeso.format(descuentoFresas)}</td>
+                    <td>{formatterPeso.format(cantidadFresas * proveedores.fruta4.valorkilo - descuentoFresas)}</td>
+                  </tr>
+                  <tr>
+                    <td colSpan="5" className='totalCarrito'>Total a pagar</td>
+                    <td className='totalCarrito'>{ formatterPeso.format(
+                          cantidadManzanas * proveedores.fruta1.valorkilo - descuentoManzanas +
+                          cantidadBananos * proveedores.fruta2.valorkilo - descuentoBananos +
+                          cantidadMangos * proveedores.fruta3.valorkilo - descuentoMangos +
+                          cantidadFresas * proveedores.fruta4.valorkilo - descuentoFresas )}</td>
+                  </tr>
+                  <tr> 
+                    <td colSpan="6">
+                      <button className='w-100 py-2' onClick={() => Facturar(cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas,totalManzanas,totalBananos,totalMangos,totalFresas,totalAPagar,setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas,setTotalManzanas,setTotalBananos,setTotalMangos,setTotalFresas,setTotalAPagar,setAlertFactura)}>Facturar</button>
+                      <button className='w-100 py-2'>Cancelar</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
             <h5 className='my-4'>Descuentos</h5>
-            <table className='table table-sm table-bordered table-striped w-100'>
-              <thead className="thead-light">
-                <tr>
-                  <th>Cantidad (Kilos)</th>
-                  <th>Descuento</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>0 - 2</td>
-                  <td>0 %</td>
-                </tr>
-                <tr>
-                  <td>3 - 5</td>
-                  <td>5 %   </td>
-                </tr>
-                <tr>
-                  <td>6 - 10</td>
-                  <td>10 %</td>
-                </tr>
-                <tr>
-                  <td>11+</td>
-                  <td>15 %</td>
-                </tr>
-              </tbody>
-            </table>
+            <div className='overflow-auto'>
+              <table className='table table-sm table-bordered table-striped w-100'>
+                <thead className="thead-light">
+                  <tr>
+                    <th>Cantidad (Kilos)</th>
+                    <th>Descuento</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>0 - 2</td>
+                    <td>0 %</td>
+                  </tr>
+                  <tr>
+                    <td>3 - 5</td>
+                    <td>5 %   </td>
+                  </tr>
+                  <tr>
+                    <td>6 - 10</td>
+                    <td>10 %</td>
+                  </tr>
+                  <tr>
+                    <td>11+</td>
+                    <td>15 %</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <a href="/facturas/factura.pdf" target="_blank">
               <p>{ alertFactura }</p></a>
             </div>
