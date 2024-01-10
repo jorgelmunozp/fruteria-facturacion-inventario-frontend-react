@@ -617,18 +617,18 @@ export const FacturacionScreen = () => {
                   </tr>
                 </tbody>
               </table>
-            {/** Buttons */}
-              <table className='w-100'>
-                <tbody>
-                  <tr> 
-                    <td colSpan="6">
-                      <button className='w-100 py-2' onClick={() => Facturar(cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas,totalManzanas,totalBananos,totalMangos,totalFresas,totalAPagar,setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas,setTotalManzanas,setTotalBananos,setTotalMangos,setTotalFresas,setTotalAPagar,setAlertFactura)}>Facturar</button>
-                      <button className='w-100 py-2'>Cancelar</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
+          {/** Buttons */}
+            <table className='w-100'>
+              <tbody>
+                <tr> 
+                  <td colSpan="6">
+                    <button className='w-100 py-2' onClick={() => Facturar(cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas,totalManzanas,totalBananos,totalMangos,totalFresas,totalAPagar,setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas,setTotalManzanas,setTotalBananos,setTotalMangos,setTotalFresas,setTotalAPagar,setAlertFactura)}>Facturar</button>
+                    <button className='w-100 py-2'>Cancelar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
             <h5 className='my-4'>Descuentos</h5>
             <div className='overflow-auto'>
