@@ -509,9 +509,7 @@ export const FacturacionScreen = () => {
 
   return (
     <>
-      <hr />
-      <center><h3>Facturación</h3></center> 
-      <hr />
+      <center><h5 className='my-4'>Facturación</h5></center> 
       <div className='row'> 
         <div>
           <center>
@@ -562,9 +560,8 @@ export const FacturacionScreen = () => {
               </table>
             </div>
             <div>
-            <hr />
-            <h4>Carrito de Compras</h4>
-            <hr />
+
+            <h5 className='my-4'>Carrito de Compras</h5>
             <table className='table table-sm table-bordered table-striped w-100'>
               <thead className="thead-light">
                 <tr>
@@ -625,9 +622,8 @@ export const FacturacionScreen = () => {
                 </tr>
               </tbody>
             </table>
-            <hr />
-            <h4>Descuentos</h4>
-            <hr />
+
+            <h5 className='my-4'>Descuentos</h5>
             <table className='table table-sm table-bordered table-striped w-100'>
               <thead className="thead-light">
                 <tr>
