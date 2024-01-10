@@ -81,19 +81,19 @@ export const InventarioScreen = () => {
                   <td scope="row">{frutas.fruta1.nombre}</td>
                   <td>{frutas.fruta1.descripcion}</td>
                   <td>{formatterPeso.format(frutas.fruta1.valorkilo)}</td>
-                  <td>{frutas.fruta1.proveedor}</td>
+                  <td className='text-nowrap text-truncate'>{frutas.fruta1.proveedor}</td>
                 </tr>
                 <tr>
                   <td>{frutas.fruta2.nombre}</td>
                   <td>{frutas.fruta2.descripcion}</td>
                   <td>{formatterPeso.format(frutas.fruta2.valorkilo)}</td>
-                  <td>{frutas.fruta2.proveedor}</td>
+                  <td className='text-nowrap text-truncate'>{frutas.fruta2.proveedor}</td>
                 </tr>
                 <tr>
                     <td>{frutas.fruta3.nombre}</td>
                     <td>{frutas.fruta3.descripcion}</td>
                     <td>{formatterPeso.format(frutas.fruta3.valorkilo)}</td>
-                    <td>{frutas.fruta3.proveedor}</td>
+                    <td className='text-nowrap text-truncate'>{frutas.fruta3.proveedor}</td>
                 </tr>
                 <tr>
                   <td>{frutas.fruta4.nombre}</td>
