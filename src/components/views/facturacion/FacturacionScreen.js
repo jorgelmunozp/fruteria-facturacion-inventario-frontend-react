@@ -550,7 +550,8 @@ export const FacturacionScreen = () => {
 
             <h5 className='my-4'>Carrito de Compras</h5>
             <CarritoBar cantidades={cantidadesFrutas} descuentos={descuentosFrutas} cantidadManzanas={cantidadManzanas} descuentoManzanas={descuentoManzanas} cantidadBananos={cantidadBananos} descuentoBananos={descuentoBananos} cantidadMangos={cantidadMangos} descuentoMangos={descuentoMangos} cantidadFresas={cantidadFresas} descuentoFresas={descuentoFresas} proveedores={proveedores} />
-          {/** Buttons */}
+            
+            {/** Buttons */}
             <table className='w-100'>
               <tbody>
                 <tr> 
