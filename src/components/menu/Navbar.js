@@ -19,7 +19,6 @@ export const Navbar = ({ urlBaseFrontend, myColor, myTitle }) => {
         <>
             <nav className="navbar navbar-expand-sm navbar-light bg-white shadow-lg user-select-none">
                 <div className="container-fluid">
-                    &nbsp;
                         <NavLink to={"/" + urlBaseFrontend}>
                             <Logo color={myColor} width={1.5} height={1.5} strokeWidth={0.5} className='navbar-brand ms-3 me-0'/>
                         </NavLink>
