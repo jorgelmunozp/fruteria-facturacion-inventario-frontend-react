@@ -42,7 +42,8 @@ span { color: var(--main-color)!important; }
     color: var(--white-color)!important;
 }
 th {
-    font-size: 2.5vmin !important;
+    font-size: 3vmin !important;
+    font-weight: normal;
     text-align: center;
 }
 td { text-align: center; }
@@ -115,5 +116,3 @@ input[type=number]::-webkit-outer-spin-button {
 
 button { background-color:var(--dark-color); color:var(--white-color); }
 button:hover{ background-color:var(--gray-color); color:var(--dark-color); }
-
-/* .alertMessage { color: var(--gray-color); } */
