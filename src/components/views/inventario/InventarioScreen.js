@@ -70,7 +70,6 @@ export const InventarioScreen = () => {
                 </tbody>
               </table>
             </div>
-            <hr />
           </div>
         </center>
       </div>

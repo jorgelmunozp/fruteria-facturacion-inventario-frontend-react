@@ -1,72 +1,54 @@
 import React, { useState } from 'react';
+import { getFetch } from '../../../helpers/getFetch';
 import { formatterPeso } from '../../../helpers/formatterPeso';
 import { formatterMiles } from '../../../helpers/formatterMiles';
 import { CiShoppingCart } from 'react-icons/ci';
 import { CarritoBar } from './CarritoBar';
+import carrito from '../../../carrito/carrito.json';
 
-const urlApiInventario = process.env.REACT_APP_API_INVENTARIO;
+const fecha = new Date();                                           //Lee la fecha actual del sistema
+const username = process.env.REACT_APP_USERNAME;
+
+const urlApiInventario = process.env.REACT_APP_API_INVENTARIO;      //APIs de las tablas en la Base de datos
 const urlApiFactura = process.env.REACT_APP_API_FACTURA;
 const urlApiProveedores = process.env.REACT_APP_API_PROVEEDORES;
 const urlApiDescuentos = process.env.REACT_APP_API_DESCUENTOS;
-const urlCarritoCompras = process.env.REACT_APP_API_CARRITO;
-const username = process.env.REACT_APP_USERNAME;
-let inventario, factura, proveedores, descuentos, carrito;
-const fecha = new Date();                             //Lee la fecha actual del sistema
+// const urlCarritoCompras = process.env.REACT_APP_API_CARRITO;
+let inventario = await getFetch(urlApiInventario);                  //Leer API de la tabla con objetos JSON en la Base de datos
+let factura = await getFetch(urlApiFactura);
+let proveedores = await getFetch(urlApiProveedores);
+let descuentos = await getFetch(urlApiDescuentos);
+// let carrito = await getFetch(urlCarritoCompras);
 
-await fetch(urlApiInventario)                         //Leer API tabla INVENTARIO objeto JSON Base de datos
-    .then(response => response.json())
-    .then(data => inventario = data)
-
-await fetch(urlApiFactura)                            //Leer API tabla FACTURA objeto JSON Base de datos
-    .then(response => response.json())
-    .then(data => factura = data)
-
-await fetch(urlApiProveedores)                       //Leer API tabla PROVEEDORES objeto JSON Base de datos
-    .then(response => response.json())
-    .then(data => proveedores = data)
-
-await fetch(urlApiDescuentos)                       //Leer API tabla DESCUENTOS objeto JSON Base de datos
-    .then(response => response.json())
-    .then(data => descuentos = data)
-
-await fetch(urlCarritoCompras)                      //Leer API tabla CARRITO COMPRAS objeto JSON Base de datos
-    .then(response => response.json())
-    .then(data => carrito = data)
-
-const AgregarAlCarrito = (cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas,setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas,setTotalManzanas,setTotalBananos,setTotalMangos,setTotalFresas,setAlertMessage) => {
+const AgregarAlCarrito = ( setAlertMessage,cantidadFrutas,descuentoFrutas,setCantidadFrutas,setDescuentoFrutas,setTotalFrutas ) => {
   let frutaDeseada, cantidadDeseada;
   const frutaSelector = document.querySelector('input[name="frutaDeseada"]:checked');
   const cantidadSelector = document.getElementById('cantidadDeseada');
-
 
   if(frutaSelector !== null && cantidadSelector.value !== "0")  {
     frutaDeseada = frutaSelector.value;
     cantidadDeseada = cantidadSelector.value;
 
-    if(frutaDeseada.toLowerCase() === "manzana") { 
-      if(cantidadDeseada <= inventario[0].detail.cantidad){ setCantidadManzanas(cantidadDeseada); setDescuentoManzanas(Descuento(cantidadDeseada,proveedores[0].detail.valorkilo)); }
-      else if(cantidadDeseada > inventario[0].detail.cantidad){ setCantidadManzanas(inventario[0].detail.cantidad); setDescuentoManzanas(Descuento(cantidadDeseada,proveedores[0].detail.valorkilo)); setAlertMessage("Hay " + inventario.manzanas.cantidad + " kilos"); }
-      setTotalManzanas(cantidadDeseada * proveedores[0].detail.valorkilo - Descuento(cantidadDeseada,proveedores[0].detail.valorkilo));
-    } else if(frutaDeseada.toLowerCase() === "banano") { 
-      if(cantidadDeseada <= inventario[1].detail.cantidad){ setCantidadBananos(cantidadDeseada); setDescuentoBananos(Descuento(cantidadDeseada,proveedores[1].detail.valorkilo)); }
-      else if(cantidadDeseada > inventario[1].detail.cantidad){ setCantidadBananos(inventario.bananos.cantidad); setDescuentoBananos(Descuento(cantidadDeseada,proveedores[1].detail.valorkilo)); setAlertMessage("Hay " + inventario.bananos.cantidad + " kilos"); }
-      setTotalBananos(cantidadDeseada * proveedores[1].detail.valorkilo - Descuento(cantidadDeseada,proveedores[1].detail.valorkilo));
-    } else if(frutaDeseada.toLowerCase() === "mango") { 
-      if(cantidadDeseada <= inventario[2].detail.cantidad){ setCantidadMangos(cantidadDeseada); setDescuentoMangos(Descuento(cantidadDeseada,proveedores[2].detail.valorkilo)); }
-      else if(cantidadDeseada > inventario[2].detail.cantidad){ setCantidadMangos(inventario.mangos.cantidad); setDescuentoMangos(Descuento(cantidadDeseada,proveedores[2].detail.valorkilo)); setAlertMessage("Hay " + inventario.mangos.cantidad + " kilos"); }
-      setTotalMangos(cantidadDeseada * proveedores[2].detail.valorkilo - Descuento(cantidadDeseada,proveedores[2].detail.valorkilo));
-    } else if(frutaDeseada.toLowerCase() === "fresa") { 
-      if(cantidadDeseada <= inventario[3].detail.cantidad){ setCantidadFresas(cantidadDeseada); setDescuentoFresas(Descuento(cantidadDeseada,proveedores[3].detail.valorkilo)); }
-      else if(cantidadDeseada > inventario[3].detail.cantidad){ setCantidadFresas(inventario.fresas.cantidad); setDescuentoFresas(Descuento(cantidadDeseada,proveedores[3].detail.valorkilo)); setAlertMessage("Hay " + inventario.fresas.cantidad + " kilos"); }
-      setTotalFresas(cantidadDeseada * proveedores[3].detail.valorkilo - Descuento(cantidadDeseada,proveedores[3].detail.valorkilo));
+    for (let i in inventario) {
+      if(frutaDeseada.toLowerCase() === inventario[i].detail.nombre.toLowerCase()) {       // Calcula cantidad, descuento, total a pagar y lo guarda en el Carrito de compras
+        if(cantidadDeseada <= inventario[i].detail.cantidad){ setCantidadFrutas[i](cantidadDeseada); setDescuentoFrutas[i](Descuento(cantidadDeseada,proveedores[i].detail.valorkilo)); }
+        else if(cantidadDeseada > inventario[i].detail.cantidad){ setCantidadFrutas[i](inventario[i].detail.cantidad); setDescuentoFrutas[i](Descuento(cantidadDeseada,proveedores[0].detail.valorkilo)); setAlertMessage("Hay " + inventario[0].detail.cantidad + " kilos"); }
+        setTotalFrutas[i](cantidadDeseada * proveedores[i].detail.valorkilo - Descuento(cantidadDeseada,proveedores[i].detail.valorkilo));
+      } 
+      document.getElementById(inventario[i].detail.nombre).checked = false;       // Clear checkbox's
     }
-    document.getElementById("Manzana").checked = false;
-    document.getElementById("Banano").checked = false;
-    document.getElementById("Mango").checked = false;
-    document.getElementById("Fresa").checked = false;
     cantidadSelector.value = 0;
     setAlertMessage("");
-    GuardarCarrito(cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas);
+    // GuardarCarrito(cantidadFrutas,descuentoFrutas);
+    for (let i in inventario) {                                                   // Actualiza el archivo json del carrito de compras del frontend del lado del cliente
+      carrito.detalle[i].fruta.kilos = cantidadFrutas[i];
+      carrito.detalle[i].fruta.subtotal = cantidadFrutas[i] * proveedores[i].detail.valorkilo;
+      carrito.detalle[i].fruta.descuento = descuentoFrutas[i];
+      carrito.detalle[i].fruta.total = carrito.detalle[i].fruta.subtotal - descuentoFrutas[i];
+    }
+    
+    console.log("carrito actualizado carrito.json: ",carrito)
+
   } else if(frutaSelector === null) {
     setAlertMessage("Elige fruta");
   } else if(cantidadSelector.value === "0") {
@@ -74,7 +56,7 @@ const AgregarAlCarrito = (cantidadManzanas,cantidadBananos,cantidadMangos,cantid
   }
 }
 
-const Descuento = (cantidadDeseada,valorKilo) => {
+const Descuento = (cantidadDeseada,valorKilo) => {          // Calcula el descuento dependiendo de la cantidad de fruta
   let descuento;
   if(cantidadDeseada>=0 && cantidadDeseada<=2){ descuento = cantidadDeseada * valorKilo * descuentos[0].detail.descuento; }
     else if(cantidadDeseada>2 && cantidadDeseada<=5){ descuento = cantidadDeseada * valorKilo * descuentos[1].detail.descuento/100; } 
@@ -84,183 +66,175 @@ const Descuento = (cantidadDeseada,valorKilo) => {
 }
 
 /********** Actualiza el archivo json del carrito de compras del frontend del lado del cliente  *********/
-const GuardarCarrito = (cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas) => {
-  fetch(urlCarritoCompras, {
-    method: 'PUT',
-    body: JSON.stringify({
-      detalle: {
-        manzanas: {
-          nombre: proveedores[0].detail.nombre,
-          kilos: cantidadManzanas,
-          precio: proveedores[0].detail.valorkilo,
-          subtotal: cantidadManzanas * proveedores[0].detail.valorkilo,
-          descuento: descuentoManzanas,
-          total: cantidadManzanas * proveedores[0].detail.valorkilo - descuentoManzanas
-        },
-        bananos: {
-          nombre: proveedores[1].detail.nombre,
-          kilos: cantidadBananos,
-          precio: proveedores[1].detail.valorkilo,
-          subtotal: cantidadBananos * proveedores[1].detail.valorkilo,
-          descuento: descuentoBananos,
-          total: cantidadBananos * proveedores[1].detail.valorkilo - descuentoBananos
-        },
-        mangos: {
-          nombre: proveedores[2].detail.nombre,
-          kilos: cantidadMangos,
-          precio: proveedores[2].detail.valorkilo,
-          subtotal: cantidadMangos * proveedores[2].detail.valorkilo,
-          descuento: descuentoMangos,
-          total: cantidadMangos * proveedores[2].detail.valorkilo - descuentoMangos
-        },
-        fresas: {
-          nombre: proveedores[3].detail.nombre,
-          kilos: cantidadFresas,
-          precio: proveedores[3].detail.valorkilo,
-          subtotal: cantidadFresas * proveedores[3].detail.valorkilo,
-          descuento: descuentoFresas,
-          total: cantidadFresas * proveedores[3].detail.valorkilo - descuentoFresas
-        }
-      },
-      totalAPagar: cantidadManzanas * proveedores[0].detail.valorkilo - descuentoManzanas +
-                    cantidadBananos * proveedores[1].detail.valorkilo - descuentoBananos +
-                    cantidadMangos * proveedores[2].detail.valorkilo - descuentoMangos +
-                    cantidadFresas * proveedores[3].detail.valorkilo - descuentoFresas
-    }),     
-    headers: { "Content-type": "application/json" }
-  })
-  .then(response => response.json())
+const GuardarCarrito = (cantidadFrutas,descuentoFrutas) => {
+console.log("GuardarCarrito cantidadFrutas: ",cantidadFrutas)
+console.log("GuardarCarrito descuentoFrutas: ",descuentoFrutas)
+
+for (let i in inventario) {
+  carrito.detalle[i].fruta.kilos = cantidadFrutas[i];
+  carrito.detalle[i].fruta.subtotal = cantidadFrutas[i] * proveedores[i].detail.valorkilo;
+  carrito.detalle[i].fruta.descuento = descuentoFrutas[i];
+  carrito.detalle[i].fruta.total = carrito.detalle[i].fruta.subtotal - descuentoFrutas[i];
+}
+
+console.log("carrito actualizado carrito.json: ",carrito)
+
+//   fetch(urlCarritoCompras, {
+//     method: 'PUT',
+//     body: JSON.stringify({
+//       detalle: {
+//         manzanas: {
+//           nombre: proveedores[0].detail.nombre,
+//           kilos: cantidadFrutas[0],
+//           precio: proveedores[0].detail.valorkilo,
+//           subtotal: cantidadFrutas[0] * proveedores[0].detail.valorkilo,
+//           descuento: descuentoFrutas[0],
+//           total: cantidadFrutas[0] * proveedores[0].detail.valorkilo - descuentoFrutas[0]
+//         },
+//         bananos: {
+//           nombre: proveedores[1].detail.nombre,
+//           kilos: cantidadFrutas[1],
+//           precio: proveedores[1].detail.valorkilo,
+//           subtotal: cantidadFrutas[1] * proveedores[1].detail.valorkilo,
+//           descuento: descuentoFrutas[1],
+//           total: cantidadFrutas[1] * proveedores[1].detail.valorkilo - descuentoFrutas[1]
+//         },
+//         mangos: {
+//           nombre: proveedores[2].detail.nombre,
+//           kilos: cantidadFrutas[2],
+//           precio: proveedores[2].detail.valorkilo,
+//           subtotal: cantidadFrutas[2] * proveedores[2].detail.valorkilo,
+//           descuento: descuentoFrutas[2],
+//           total: cantidadFrutas[2] * proveedores[2].detail.valorkilo - descuentoFrutas[2]
+//         },
+//         fresas: {
+//           nombre: proveedores[3].detail.nombre,
+//           kilos: cantidadFrutas[3],
+//           precio: proveedores[3].detail.valorkilo,
+//           subtotal: cantidadFrutas[3] * proveedores[3].detail.valorkilo,
+//           descuento: descuentoFrutas[3],
+//           total: cantidadFrutas[3] * proveedores[3].detail.valorkilo - descuentoFrutas[3]
+//         }
+//       },
+//       totalAPagar: cantidadFrutas[0] * proveedores[0].detail.valorkilo - descuentoFrutas[0] +
+//                    cantidadFrutas[1] * proveedores[1].detail.valorkilo - descuentoFrutas[1] +
+//                    cantidadFrutas[2] * proveedores[2].detail.valorkilo - descuentoFrutas[2] +
+//                    cantidadFrutas[3] * proveedores[3].detail.valorkilo - descuentoFrutas[3]
+//     }),     
+//     headers: { "Content-type": "application/json", "Accept": "application/json" }
+//   })
+//   .then(response => response.json())
 }
 
 /********** Genera la factura de la venta *********/
-const Facturar = (cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas,totalManzanas,totalBananos,totalMangos,totalFresas,totalAPagar,setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas,setTotalManzanas,setTotalBananos,setTotalMangos,setTotalFresas,setTotalAPagar,setAlertFactura) => {
-  if(cantidadManzanas!== 0) {
-    if(cantidadManzanas <= inventario.manzanas.cantidad ) {
-      inventario.manzanas.cantidad = inventario.manzanas.cantidad - cantidadManzanas;
-    } else if( cantidadManzanas > inventario.manzanas.cantidad ) {
-      inventario.manzanas.cantidad = 0;
+const Facturar = (totalAPagar,setTotalAPagar,setAlertFactura,cantidadFrutas,descuentoFrutas,totalFrutas,setCantidadFrutas,setDescuentoFrutas,setTotalFrutas ) => {
+  for(let i in inventario) {
+    if(cantidadFrutas[i]!== 0) {
+      if(cantidadFrutas[i] <= inventario[i].detail.cantidad ) {
+        inventario[i].detail.cantidad = inventario[i].detail.cantidad - cantidadFrutas[0];
+      } else if( cantidadFrutas[i] > inventario[i].detail.cantidad ) {
+        inventario[i].detail.cantidad = 0;
+      }
+      inventario[i].detail.ventas++;
+      inventario[i].detail.kilos = parseInt(inventario[i].detail.kilos) + parseInt(cantidadFrutas[i]);
+      inventario[i].detail.total = parseInt(inventario[i].detail.total) + parseInt(totalFrutas[i]);
     }
-    inventario.manzanas.ventas++;
-    inventario.manzanas.kilos = parseInt(inventario.manzanas.kilos) + parseInt(cantidadManzanas);
-    inventario.manzanas.total = parseInt(inventario.manzanas.total) + parseInt(totalManzanas);
   }
-  if(cantidadBananos!== 0) {
-    if(cantidadBananos <= inventario.bananos.cantidad ) {
-      inventario.bananos.cantidad = inventario.bananos.cantidad - cantidadBananos;
-    } else if( cantidadBananos > inventario.bananos.cantidad ) {
-      inventario.bananos.cantidad = 0;
-    }
-    inventario.bananos.ventas++;
-    inventario.bananos.kilos = parseInt(inventario.bananos.kilos) + parseInt(cantidadBananos);
-    inventario.bananos.total = parseInt(inventario.bananos.total) + parseInt(totalBananos);
-  }
-  if(cantidadMangos!== 0) {
-    if(cantidadMangos <= inventario.mangos.cantidad ) {
-      inventario.mangos.cantidad = inventario.mangos.cantidad - cantidadMangos;
-    } else if( cantidadMangos > inventario.mangos.cantidad ) {
-      inventario.mangos.cantidad = 0;
-    }
-    inventario.mangos.ventas++;
-    inventario.mangos.kilos = parseInt(inventario.mangos.kilos) + parseInt(cantidadMangos);
-    inventario.mangos.total = parseInt(inventario.mangos.total) + parseInt(totalMangos);
-  }
-  if(cantidadFresas!== 0) {
-    if(cantidadFresas <= inventario.fresas.cantidad ) {
-      inventario.fresas.cantidad = inventario.fresas.cantidad - cantidadFresas;
-    } else if( cantidadFresas > inventario.fresas.cantidad ) {
-      inventario.fresas.cantidad = 0;
-    }
-    inventario.fresas.ventas++;
-    inventario.fresas.kilos = parseInt(inventario.fresas.kilos) + parseInt(cantidadFresas);
-    inventario.fresas.total = parseInt(inventario.fresas.total) + parseInt(totalFresas);
-  }
-
+  
  // Factura que se envía a la base de datos del servidor mediante API
-  if(cantidadManzanas!== 0 || cantidadBananos!== 0 || cantidadMangos!== 0 || cantidadFresas!== 0) {
+  if(cantidadFrutas[0]!== 0 || cantidadFrutas[1]!== 0 || cantidadFrutas[2]!== 0 || cantidadFrutas[3]!== 0) {
     factura.id++;
     factura.vendedor = username;
-    factura.detalle.manzanas.kilos = cantidadManzanas;
-    factura.detalle.manzanas.precio = proveedores[0].detail.valorkilo;
-    factura.detalle.manzanas.subtotal = cantidadManzanas * proveedores[0].detail.valorkilo;
-    factura.detalle.manzanas.descuento = descuentoManzanas;
-    factura.detalle.manzanas.total = totalManzanas;
-    factura.detalle.bananos.kilos = cantidadBananos;
-    factura.detalle.bananos.precio = proveedores[1].detail.valorkilo;
-    factura.detalle.bananos.subtotal = cantidadBananos * proveedores[1].detail.valorkilo;
-    factura.detalle.bananos.descuento = descuentoBananos;
-    factura.detalle.bananos.total = totalBananos;
-    factura.detalle.mangos.kilos = cantidadMangos;
-    factura.detalle.mangos.precio = proveedores[2].detail.valorkilo;
-    factura.detalle.mangos.subtotal = cantidadMangos * proveedores[2].detail.valorkilo;
-    factura.detalle.mangos.descuento = descuentoMangos;
-    factura.detalle.mangos.total = totalMangos;
-    factura.detalle.fresas.kilos = cantidadFresas;
-    factura.detalle.fresas.precio = proveedores[3].detail.valorkilo;
-    factura.detalle.fresas.subtotal = cantidadFresas * proveedores[3].detail.valorkilo;
-    factura.detalle.fresas.descuento = descuentoFresas;
-    factura.detalle.fresas.total = totalFresas;
-
+    for (let i in inventario) {
+      factura.detalle[i].fruta.kilos = cantidadFrutas[i];
+      factura.detalle[i].fruta.precio = proveedores[i].detail.valorkilo;
+      factura.detalle[i].fruta.subtotal = cantidadFrutas[i] * proveedores[i].detail.valorkilo;
+      factura.detalle[i].fruta.descuento = descuentoFrutas[i];
+      factura.detalle[i].fruta.total = totalFrutas[i];
+    }
     actualizarInventario(inventario);                       // Actualiza el inventario después de la compra
     actualizarFactura(factura);                             // Guarda la factura de la ultima compra en el servidor
-    setTotalAPagar(totalManzanas + totalBananos + totalMangos + totalFresas)
-    generarRecibo(totalAPagar,setAlertFactura);                             // Genera la factura en PDF
+    setTotalAPagar(totalFrutas[0] + totalFrutas[1] + totalFrutas[2] + totalFrutas[3])
+    generarRecibo(totalAPagar,setAlertFactura);             // Genera la factura en PDF
 
-    setCantidadManzanas(0);
-    setCantidadBananos(0);
-    setCantidadMangos(0);
-    setCantidadFresas(0);
-    setDescuentoManzanas(0);
-    setDescuentoBananos(0);
-    setDescuentoMangos(0);
-    setDescuentoFresas(0);
-    setTotalManzanas(0);
-    setTotalBananos(0);
-    setTotalMangos(0);
-    setTotalFresas(0);
+    for (let i in inventario) {                             // Reinicia las variables para una nueva venta
+      setCantidadFrutas[i](0);
+      setDescuentoFrutas[i](0);
+      setTotalFrutas[i](0);
+    }
   }
 }
 
 /********** Actualiza el inventario en la base de datos del servidor mediante la API  *********/
+// function actualizarInventario(inventario){
+//   fetch(urlApiInventario, {
+//     method: 'PUT',
+//     body: JSON.stringify(
+//         {
+//           detail: {
+//             nombre: inventario[0].detail.nombre,
+//             cantidad: inventario[0].detail.cantidad,
+//             ventas: inventario[0].detail.ventas,
+//             kilos: inventario[0].detail.kilos,
+//             total: inventario[0].detail.total
+//           }, 
+//           id: 1
+//         },
+//         {
+//           detail: {
+//             nombre: inventario[1].detail.nombre,
+//             cantidad: inventario[1].detail.cantidad,
+//             ventas: inventario[1].detail.ventas,
+//             kilos: inventario[1].detail.kilos,
+//             total: inventario[1].detail.total
+//           }, 
+//           id: 2
+//         },
+//         {
+//           detail: {
+//             nombre: inventario[2].detail.nombre,
+//             cantidad: inventario[2].detail.cantidad,
+//             ventas: inventario[2].detail.ventas,
+//             kilos: inventario[2].detail.kilos,
+//             total: inventario[2].detail.total
+//           }, 
+//           id: 3
+//         },
+//         {
+//           detail: {
+//             nombre: inventario[3].detail.nombre,
+//             cantidad: inventario[3].detail.cantidad,
+//             ventas: inventario[3].detail.ventas,
+//             kilos: inventario[3].detail.kilos,
+//             total: inventario[3].detail.total
+//           },
+//           id: 4
+//         }
+//     ),
+//     headers: { "Content-type": "application/json" }
+//   })
+//   .then(response => response.json())
+// }
+
 function actualizarInventario(inventario){
-  fetch(urlApiInventario, {
-    method: 'PUT',
-    body: JSON.stringify({
-      manzanas: {
-        id: 0,
-        nombre: inventario.manzanas.nombre,
-        cantidad: inventario.manzanas.cantidad,
-        ventas: inventario.manzanas.ventas,
-        kilos: inventario.manzanas.kilos,
-        total: inventario.manzanas.total
-      },
-      bananos: {
-        id: 1,
-        nombre: inventario.bananos.nombre,
-        cantidad: inventario.bananos.cantidad,
-        ventas: inventario.bananos.ventas,
-        kilos: inventario.bananos.kilos,
-        total: inventario.bananos.total
-      },
-      mangos: {
-        id: 2,
-        nombre: inventario.mangos.nombre,
-        cantidad: inventario.mangos.cantidad,
-        ventas: inventario.mangos.ventas,
-        kilos: inventario.mangos.kilos,
-        total: inventario.mangos.total
-      },
-      fresas: {
-        id: 3,
-        nombre: inventario.fresas.nombre,
-        cantidad: inventario.fresas.cantidad,
-        ventas: inventario.fresas.ventas,
-        kilos: inventario.fresas.kilos,
-        total: inventario.fresas.total
-      }
-    }),
-    headers: { "Content-type": "application/json" }
-  })
-  .then(response => response.json())
+  for(let i in inventario) {
+    fetch(urlApiInventario + "/" + (Number(i) + Number(1)), {
+      method: 'PUT',
+      body: JSON.stringify(
+        {
+          detail: {
+            nombre: inventario[i].detail.nombre,
+            cantidad: inventario[i].detail.cantidad,
+            ventas: inventario[i].detail.ventas,
+            kilos: inventario[i].detail.kilos,
+            total: inventario[i].detail.total
+          }
+        }
+      ),
+      headers: { "Content-type": "application/json" }
+    })
+    .then(response => response.json())
+  }
 }
 
 /********** Actualiza la factura en la base de datos del servidor mediante la API  *********/
@@ -270,40 +244,52 @@ function actualizarFactura(factura){
     body: JSON.stringify({
       id: factura.id,
       vendedor: username,
-      detalle: {
-        manzanas: {
-          nombre: factura.detalle.manzanas.nombre,
-          kilos: factura.detalle.manzanas.kilos,
-          precio: factura.detalle.manzanas.precio,
-          subtotal: factura.detalle.manzanas.subtotal,
-          descuento: factura.detalle.manzanas.descuento,
-          total: factura.detalle.manzanas.total
+      detalle: [
+        {
+          fruta: {
+            nombre: factura.detalle[0].fruta.nombre,
+            kilos: factura.detalle[0].fruta.kilos,
+            precio: factura.detalle[0].fruta.precio,
+            subtotal: factura.detalle[0].fruta.subtotal,
+            descuento: factura.detalle[0].fruta.descuento,
+            total: factura.detalle[0].fruta.total
+          },
+          id: 1
         },
-        bananos: {
-          nombre: factura.detalle.bananos.nombre,
-          kilos: factura.detalle.bananos.kilos,
-          precio: factura.detalle.bananos.precio,
-          subtotal: factura.detalle.bananos.subtotal,
-          descuento: factura.detalle.bananos.descuento,
-          total: factura.detalle.bananos.total
+        {
+          fruta: {
+            nombre: factura.detalle[1].fruta.nombre,
+            kilos: factura.detalle[1].fruta.kilos,
+            precio: factura.detalle[1].fruta.precio,
+            subtotal: factura.detalle[1].fruta.subtotal,
+            descuento: factura.detalle[1].fruta.descuento,
+            total: factura.detalle[1].fruta.total
+          },
+          id: 2
         },
-        mangos: {
-          nombre: factura.detalle.mangos.nombre,
-          kilos: factura.detalle.mangos.kilos,
-          precio: factura.detalle.mangos.precio,
-          subtotal: factura.detalle.mangos.subtotal,
-          descuento: factura.detalle.mangos.descuento,
-          total: factura.detalle.mangos.total
+        {
+          fruta: {
+            nombre: factura.detalle[2].fruta.nombre,
+            kilos: factura.detalle[2].fruta.kilos,
+            precio: factura.detalle[2].fruta.precio,
+            subtotal: factura.detalle[2].fruta.subtotal,
+            descuento: factura.detalle[2].fruta.descuento,
+            total: factura.detalle[2].fruta.total
+          },
+          id: 3
         },
-        fresas: {
-          nombre: factura.detalle.fresas.nombre,
-          kilos: factura.detalle.fresas.kilos,
-          precio: factura.detalle.fresas.precio,
-          subtotal: factura.detalle.fresas.subtotal,
-          descuento: factura.detalle.fresas.descuento,
-          total: factura.detalle.fresas.total
+        {
+          fruta: {
+            nombre: factura.detalle[3].fruta.nombre,
+            kilos: factura.detalle[3].fruta.kilos,
+            precio: factura.detalle[3].fruta.precio,
+            subtotal: factura.detalle[3].fruta.subtotal,
+            descuento: factura.detalle[3].fruta.descuento,
+            total: factura.detalle[3].fruta.total
+          },
+          id: 4
         }
-      }
+      ]
     }),
     headers: { "Content-type": "application/json" }
   })
@@ -427,36 +413,36 @@ function generarRecibo(totalAPagar,setAlertFactura){
                        <th>Total</th>	
                      </tr>
                      <tr>
-                       <td>${carrito.detalle.manzanas.nombre}</td>
-                       <td>${formatterMiles.format(carrito.detalle.manzanas.kilos)}</td>
-                       <td>${formatterPeso.format(carrito.detalle.manzanas.precio)}</td>
-                       <td>${formatterPeso.format(carrito.detalle.manzanas.subtotal)}</td>
-                       <td>${formatterPeso.format(carrito.detalle.manzanas.descuento)}</td>
-                       <td>${formatterPeso.format(carrito.detalle.manzanas.total)}</td>
+                       <td>${carrito.detalle[0].fruta.nombre}</td>
+                       <td>${formatterMiles.format(carrito.detalle[0].fruta.kilos)}</td>
+                       <td>${formatterPeso.format(carrito.detalle[0].fruta.precio)}</td>
+                       <td>${formatterPeso.format(carrito.detalle[0].fruta.subtotal)}</td>
+                       <td>${formatterPeso.format(carrito.detalle[0].fruta.descuento)}</td>
+                       <td>${formatterPeso.format(carrito.detalle[0].fruta.total)}</td>
                      </tr>
                      <tr>
-                       <td>${carrito.detalle.bananos.nombre}</td>
-                       <td>${formatterMiles.format(carrito.detalle.bananos.kilos)}</td>
-                       <td>${formatterPeso.format(carrito.detalle.bananos.precio)}</td>
-                       <td>${formatterPeso.format(carrito.detalle.bananos.subtotal)}</td>
-                       <td>${formatterPeso.format(carrito.detalle.bananos.descuento)}</td>
-                       <td>${formatterPeso.format(carrito.detalle.bananos.total)}</td>
+                       <td>${carrito.detalle[1].fruta.nombre}</td>
+                       <td>${formatterMiles.format(carrito.detalle[1].fruta.kilos)}</td>
+                       <td>${formatterPeso.format(carrito.detalle[1].fruta.precio)}</td>
+                       <td>${formatterPeso.format(carrito.detalle[1].fruta.subtotal)}</td>
+                       <td>${formatterPeso.format(carrito.detalle[1].fruta.descuento)}</td>
+                       <td>${formatterPeso.format(carrito.detalle[1].fruta.total)}</td>
                      </tr>	
                      <tr>
-                       <td>${carrito.detalle.mangos.nombre}</td>
-                       <td>${formatterMiles.format(carrito.detalle.mangos.kilos)}</td>
-                       <td>${formatterPeso.format(carrito.detalle.mangos.precio)}</td>
-                       <td>${formatterPeso.format(carrito.detalle.mangos.subtotal)}</td>
-                       <td>${formatterPeso.format(carrito.detalle.mangos.descuento)}</td>
-                       <td>${formatterPeso.format(carrito.detalle.mangos.total)}</td>
+                       <td>${carrito.detalle[2].fruta.nombre}</td>
+                       <td>${formatterMiles.format(carrito.detalle[2].fruta.kilos)}</td>
+                       <td>${formatterPeso.format(carrito.detalle[2].fruta.precio)}</td>
+                       <td>${formatterPeso.format(carrito.detalle[2].fruta.subtotal)}</td>
+                       <td>${formatterPeso.format(carrito.detalle[2].fruta.descuento)}</td>
+                       <td>${formatterPeso.format(carrito.detalle[2].fruta.total)}</td>
                      </tr>
                      <tr>
-                       <td>${carrito.detalle.fresas.nombre}</td>
-                       <td>${formatterMiles.format(carrito.detalle.fresas.kilos)}</td>
-                       <td>${formatterPeso.format(carrito.detalle.fresas.precio)}</td>
-                       <td>${formatterPeso.format(carrito.detalle.fresas.subtotal)}</td>
-                       <td>${formatterPeso.format(carrito.detalle.fresas.descuento)}</td>
-                       <td>${formatterPeso.format(carrito.detalle.fresas.total)}</td>
+                       <td>${carrito.detalle[3].fruta.nombre}</td>
+                       <td>${formatterMiles.format(carrito.detalle[3].fruta.kilos)}</td>
+                       <td>${formatterPeso.format(carrito.detalle[3].fruta.precio)}</td>
+                       <td>${formatterPeso.format(carrito.detalle[3].fruta.subtotal)}</td>
+                       <td>${formatterPeso.format(carrito.detalle[3].fruta.descuento)}</td>
+                       <td>${formatterPeso.format(carrito.detalle[3].fruta.total)}</td>
                      </tr>		
                    </table>
                    <br></br>
@@ -496,14 +482,18 @@ export const FacturacionScreen = () => {
   const [totalManzanas, setTotalManzanas] = useState(0);
   const [totalBananos, setTotalBananos] = useState(0);
   const [totalMangos, setTotalMangos] = useState(0);
-  const [totalAPagar, setTotalAPagar] = useState(0);
   const [totalFresas, setTotalFresas] = useState(0);
+  const [totalAPagar, setTotalAPagar] = useState(0);
   const [alertMessage,setAlertMessage] = useState("");
   const [alertFactura,setAlertFactura] = useState("");
 
-  const cantidadesFrutas = [ cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas ];
-  const descuentosFrutas = [ descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas ];
-
+  const cantidadFrutas = [ cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas ];
+  const descuentoFrutas = [ descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas ];
+  const totalFrutas = [ totalManzanas,totalBananos,totalMangos,totalFresas ];
+  const setCantidadFrutas = [ setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas ];
+  const setDescuentoFrutas = [ setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas ];
+  const setTotalFrutas = [ setTotalManzanas,setTotalBananos,setTotalMangos,setTotalFresas ];
+  
   return (
     <>
       <center><h5 className='my-4'>Facturación</h5></center> 
@@ -537,7 +527,7 @@ export const FacturacionScreen = () => {
                     </td>
                     <td><input id="cantidadDeseada" type="number" name="cantidadDeseada" defaultValue={0} min="0" placeholder="Kilos fruta" autoComplete="off" onChange={() => setAlertMessage("")} className='w-100 py-5'/></td>
                     <td>
-                      <button className='w-100 py-1 px-3' onClick={() => AgregarAlCarrito(cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas,setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas,setTotalManzanas,setTotalBananos,setTotalMangos,setTotalFresas,setAlertMessage)}>
+                      <button className='w-100 py-1 px-3' onClick={() => AgregarAlCarrito(setAlertMessage,cantidadFrutas,descuentoFrutas,setCantidadFrutas,setDescuentoFrutas,setTotalFrutas)}>
                         <CiShoppingCart className='fs-3 my-3'/>
                       </button>
                       <p className='text-dark'>{ alertMessage }</p>
@@ -549,14 +539,14 @@ export const FacturacionScreen = () => {
             <div>
 
             <h5 className='my-4'>Carrito de Compras</h5>
-            <CarritoBar cantidades={cantidadesFrutas} descuentos={descuentosFrutas} cantidadManzanas={cantidadManzanas} descuentoManzanas={descuentoManzanas} cantidadBananos={cantidadBananos} descuentoBananos={descuentoBananos} cantidadMangos={cantidadMangos} descuentoMangos={descuentoMangos} cantidadFresas={cantidadFresas} descuentoFresas={descuentoFresas} proveedores={proveedores} />
+            <CarritoBar cantidadFrutas={cantidadFrutas} descuentoFrutas={descuentoFrutas} proveedores={proveedores} />
             
             {/** Buttons */}
             <table className='w-100'>
               <tbody>
                 <tr> 
                   <td colSpan="6">
-                    <button className='w-100 py-2' onClick={() => Facturar(cantidadManzanas,cantidadBananos,cantidadMangos,cantidadFresas,descuentoManzanas,descuentoBananos,descuentoMangos,descuentoFresas,totalManzanas,totalBananos,totalMangos,totalFresas,totalAPagar,setCantidadManzanas,setCantidadBananos,setCantidadMangos,setCantidadFresas,setDescuentoManzanas,setDescuentoBananos,setDescuentoMangos,setDescuentoFresas,setTotalManzanas,setTotalBananos,setTotalMangos,setTotalFresas,setTotalAPagar,setAlertFactura)}>Facturar</button>
+                    <button className='w-100 py-2' onClick={() => Facturar(totalAPagar,setTotalAPagar,setAlertFactura,cantidadFrutas,descuentoFrutas,totalFrutas,setCantidadFrutas,setDescuentoFrutas,setTotalFrutas )}>Facturar</button>
                     <button className='w-100 py-2'>Cancelar</button>
                   </td>
                 </tr>

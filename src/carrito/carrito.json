@@ -1,0 +1,49 @@
+{
+    "detalle": [
+      {
+        "fruta": {
+          "nombre": "Manzanas",
+          "kilos": 0,
+          "precio": 4200,
+          "subtotal": 0,
+          "descuento": 0,
+          "total": 0
+        },
+        "id": 1
+      },
+      {
+        "fruta": {
+          "nombre": "Bananos",
+          "kilos": 0,
+          "precio": 2200,
+          "subtotal": 0,
+          "descuento": 0,
+          "total": 0
+        },
+        "id": 2
+      },
+      {
+        "fruta": {
+          "nombre": "Mangos",
+          "kilos": 0,
+          "precio": 3500,
+          "subtotal": 0,
+          "descuento": 0,
+          "total": 0
+        },
+        "id": 3
+      },
+      {
+        "fruta": {
+          "nombre": "Fresas",
+          "kilos": 0,
+          "precio": 2700,
+          "subtotal": 0,
+          "descuento": 0,
+          "total": 0
+        },
+        "id": 4
+      }
+    ],
+    "totalAPagar": 0
+  }

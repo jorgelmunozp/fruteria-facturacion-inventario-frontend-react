@@ -1,7 +1,7 @@
 import { formatterPeso } from '../../../helpers/formatterPeso';
 import { formatterMiles } from '../../../helpers/formatterMiles';
 
-export const CarritoTotalBar = ({ inventario }) => {
+export const CarritoBar = ({ carrito }) => {
   return (
     <>
       <div className='row'>
@@ -20,19 +20,18 @@ export const CarritoTotalBar = ({ inventario }) => {
               </thead>
               <tbody>
                 {
-                  inventario.map(inventario =>(
-                    <tr>
-                    <td>{inventario.detail.nombre}</td>
-                    <td>{formatterMiles.format(inventario.detail.cantidad)}</td>
-                    <td>{formatterMiles.format(inventario.detail.ventas)}</td>
-                    <td>{formatterMiles.format(inventario.detail.kilos)}</td>
-                    <td>{formatterPeso.format(inventario.detail.total)}</td>
-                    <td>{formatterPeso.format(inventario.detail.total)}</td>
+                  carrito.detalle.map(carrito =>(
+                    <tr key={carrito.fruta.nombre}>
+                      <td>{carrito.fruta.nombre}</td>
+                      <td>{formatterMiles.format(carrito.fruta.kilos)}</td>
+                      <td>{formatterMiles.format(carrito.fruta.precio)}</td>
+                      <td>{formatterMiles.format(carrito.fruta.subtotal)}</td>
+                      <td>{formatterPeso.format(carrito.fruta.descuento)}</td>
+                      <td>{formatterPeso.format(carrito.fruta.total)}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <hr />
           </div>
         </center>
       </div>

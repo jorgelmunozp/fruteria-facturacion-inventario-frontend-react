@@ -13,7 +13,7 @@
 ***
 
 ### Preview
-![Preview](/docs/preview.png)
+![Preview](/docs/preview.webp)
 
 ***
 
