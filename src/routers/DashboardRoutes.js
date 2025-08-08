@@ -1,5 +1,6 @@
+import { lazy } from 'react';
 import { Routes, Route } from "react-router-dom";
-import { InventarioScreen } from "../components/views/inventario/InventarioScreen";
+const InventarioScreen = lazy(() => import('../components/views/inventario/InventarioScreen.js'));
 
 export const DashboardRoutes = ({ urlBaseFrontend }) => {
   return (
@@ -15,3 +16,5 @@ export const DashboardRoutes = ({ urlBaseFrontend }) => {
     </>
   )
 }
+
+export default DashboardRoutes;

@@ -1,6 +1,5 @@
-import React from 'react';
-import { formatterPeso } from '../../../helpers/formatterPeso';
-import { formatterMiles } from '../../../helpers/formatterMiles';
+import { formatterPeso } from '../../../helpers/formatterPeso.js';
+import { formatterMiles } from '../../../helpers/formatterMiles.js';
 
 const urlApiInventario = process.env.REACT_APP_API_INVENTARIO;
 const urlApiProveedores = process.env.REACT_APP_API_PROVEEDORES;
@@ -77,5 +76,4 @@ export const InventarioScreen = () => {
   )
 }
 
-
-
+export default InventarioScreen;

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { getFetch } from '../../../helpers/getFetch';
-import { formatterPeso } from '../../../helpers/formatterPeso';
-import { formatterMiles } from '../../../helpers/formatterMiles';
+import { useState } from 'react';
+import { getFetch } from '../../../helpers/getFetch.js';
+import { formatterPeso } from '../../../helpers/formatterPeso.js';
+import { formatterMiles } from '../../../helpers/formatterMiles.js';
 import { CiShoppingCart } from 'react-icons/ci';
-import { CarritoBar } from './CarritoBar';
+import { CarritoBar } from './CarritoBar.js';
 import carrito from '../../../carrito/carrito.json';
 
 const fecha = new Date();                                           //Lee la fecha actual del sistema
@@ -35,6 +35,10 @@ const AgregarAlCarrito = ( setAlertMessage,cantidadFrutas,descuentoFrutas,setCan
         else if(cantidadDeseada > inventario[i].detail.cantidad){ setCantidadFrutas[i](inventario[i].detail.cantidad); setDescuentoFrutas[i](Descuento(cantidadDeseada,proveedores[0].detail.valorkilo)); setAlertMessage("Hay " + inventario[0].detail.cantidad + " kilos"); }
         setTotalFrutas[i](cantidadDeseada * proveedores[i].detail.valorkilo - Descuento(cantidadDeseada,proveedores[i].detail.valorkilo));
       } 
+
+      console.log("frutaSelector.value: ",frutaSelector.value);
+      console.log("inventario[i].detail.nombre: ",inventario[i].detail.nombre);
+      console.log("document.getElementById(inventario[i].detail.nombre): ",document.getElementById(inventario[i].detail.nombre));
       document.getElementById(inventario[i].detail.nombre).checked = false;       // Clear checkbox's
     }
     cantidadSelector.value = 0;
@@ -582,6 +586,3 @@ export const FacturacionScreen = () => {
     </>
   )
 }
-
-
-

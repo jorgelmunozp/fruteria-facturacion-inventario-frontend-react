@@ -1,5 +1,5 @@
 import { CiShoppingCart } from 'react-icons/ci';
-import { CarritoBar } from './CarritoComprasBar';
+import { CarritoBar } from './CarritoComprasBar.js';
 import carrito from '../../../carrito/carrito.json';
 
 export const CarritoScreen = () => {

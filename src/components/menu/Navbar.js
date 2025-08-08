@@ -1,12 +1,11 @@
-import React, { useContext } from 'react'
-import { NavLink } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
-import { AuthContext } from '../../auth/authContext';
-import { types } from '../../types/types';
-import { Logo } from '../../components/icons/logo/Logo';
-import { HomeMenu } from '../../components/icons/home/HomeMenu';
+import { lazy, useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../auth/authContext.js';
+import { types } from '../../types/types.js';
+const HomeMenu = lazy(() => import('../icons/home/HomeMenu.js'));
 
-export const Navbar = ({ urlBaseFrontend, myColor, myTitle }) => {
+export const Navbar = ({ Logo, urlBaseFrontend, myColor, myTitle }) => {
     const { user, dispatch } = useContext(AuthContext);
     const navigate = useNavigate();
 

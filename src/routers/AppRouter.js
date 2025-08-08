@@ -15,7 +15,7 @@ const urlBaseFrontend = process.env.REACT_APP_URL_BASE_FRONTEND;
 export const AppRouter = ({ Logo, theme, handleTheme }) => {
   return (
     <Router>
-      <Navbar urlBaseFrontend={urlBaseFrontend} myColor={myColor} myTitle={myTitle} />
+      <Navbar Logo={Logo} urlBaseFrontend={urlBaseFrontend} myColor={myColor} myTitle={myTitle} />
 
       <div className="container user-select-none">
         <Routes>

@@ -1,5 +1,5 @@
-import { formatterPeso } from '../../../helpers/formatterPeso';
-import { formatterMiles } from '../../../helpers/formatterMiles';
+import { formatterPeso } from '../../../helpers/formatterPeso.js';
+import { formatterMiles } from '../../../helpers/formatterMiles.js';
 
 export const CarritoBar = ({ cantidadFrutas,descuentoFrutas,proveedores }) => {
   return (

@@ -7,3 +7,4 @@ export const HomeMenu = ({ color='currentColor', className='', strokeWidth='0', 
         </span>
     );
 }
+export default HomeMenu;
