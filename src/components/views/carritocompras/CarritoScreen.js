@@ -15,5 +15,4 @@ export const CarritoScreen = () => {
   )
 }
 
-
-
+export default CarritoScreen;

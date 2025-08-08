@@ -10,3 +10,5 @@ export const PrivateRoute = ({ children,urlBaseFrontend }) => {
 
   return user.logged ? children : <Navigate to={"/" + urlBaseFrontend} /> 
 }
+
+export default PrivateRoute;

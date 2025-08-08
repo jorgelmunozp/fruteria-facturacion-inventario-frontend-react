@@ -59,3 +59,5 @@ export const LoginScreen = ({ myTitle,myColor }) => {
     </div>
   )
 }
+
+export default LoginScreen;
