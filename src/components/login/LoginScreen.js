@@ -1,10 +1,10 @@
-import React, { useState, useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { AuthContext } from '../../auth/authContext';
-import { types } from '../../types/types';
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../auth/authContext.js';
+import { types } from '../../types/types.js';
 
-import { CiLemon,CiApple,CiShop,CiShoppingBasket,CiShoppingCart } from 'react-icons/ci';
-import { LoginForm } from './LoginForm';
+import { CiLemon,CiApple,CiShop } from 'react-icons/ci';
+import { LoginForm } from './LoginForm.js';
 import './login.css';
 
 const user = process.env.REACT_APP_USER;

@@ -1,4 +1,3 @@
-import React from 'react';
 export const Logo = ({ color='currentColor', className='', strokeWidth='2', width='1', height='1' }) => {
     return (
         <span>

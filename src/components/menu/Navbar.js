@@ -1,6 +1,5 @@
 import { lazy, useContext } from 'react';
-import { NavLink } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../auth/authContext.js';
 import { types } from '../../types/types.js';
 const HomeMenu = lazy(() => import('../icons/home/HomeMenu.js'));
