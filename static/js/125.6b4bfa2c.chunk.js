@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkfruteria_facturacion_inventario_frontend_react=self.webpackChunkfruteria_facturacion_inventario_frontend_react||[]).push([[125],{125:(e,t,r)=>{r.r(t),r.d(t,{PrivateRoute:()=>s});var a=r(43),n=r(924),c=r(926),o=r(579);const s=e=>{let{children:t,urlBaseFrontend:r}=e;const{user:s}=(0,a.useContext)(c.c),{pathname:u,search:i}=(0,n.zy)();return localStorage.setItem("lastPath",u+i),s.logged?t:(0,o.jsx)(n.C5,{to:"/"+r})}}}]);
-//# sourceMappingURL=125.6b4bfa2c.chunk.js.map

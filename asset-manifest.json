@@ -1,34 +1,34 @@
 {
   "files": {
     "main.css": "/fruteria-facturacion-inventario-frontend-react/static/css/main.1a5fa877.css",
-    "main.js": "/fruteria-facturacion-inventario-frontend-react/static/js/main.c982cccf.js",
+    "main.js": "/fruteria-facturacion-inventario-frontend-react/static/js/main.b61d24c9.js",
     "static/js/743.843f73fa.chunk.js": "/fruteria-facturacion-inventario-frontend-react/static/js/743.843f73fa.chunk.js",
     "static/js/831.83d9a9d1.chunk.js": "/fruteria-facturacion-inventario-frontend-react/static/js/831.83d9a9d1.chunk.js",
-    "static/js/125.6b4bfa2c.chunk.js": "/fruteria-facturacion-inventario-frontend-react/static/js/125.6b4bfa2c.chunk.js",
+    "static/js/125.4fb06796.chunk.js": "/fruteria-facturacion-inventario-frontend-react/static/js/125.4fb06796.chunk.js",
     "static/js/23.d5459c15.chunk.js": "/fruteria-facturacion-inventario-frontend-react/static/js/23.d5459c15.chunk.js",
-    "static/js/767.99731d69.chunk.js": "/fruteria-facturacion-inventario-frontend-react/static/js/767.99731d69.chunk.js",
+    "static/js/767.da3d53cb.chunk.js": "/fruteria-facturacion-inventario-frontend-react/static/js/767.da3d53cb.chunk.js",
     "static/css/842.480c17ef.chunk.css": "/fruteria-facturacion-inventario-frontend-react/static/css/842.480c17ef.chunk.css",
-    "static/js/842.e769562d.chunk.js": "/fruteria-facturacion-inventario-frontend-react/static/js/842.e769562d.chunk.js",
+    "static/js/842.3821f9e8.chunk.js": "/fruteria-facturacion-inventario-frontend-react/static/js/842.3821f9e8.chunk.js",
     "static/js/468.1b9fe083.chunk.js": "/fruteria-facturacion-inventario-frontend-react/static/js/468.1b9fe083.chunk.js",
     "static/js/471.180c0d0c.chunk.js": "/fruteria-facturacion-inventario-frontend-react/static/js/471.180c0d0c.chunk.js",
     "static/js/148.8dbf40ff.chunk.js": "/fruteria-facturacion-inventario-frontend-react/static/js/148.8dbf40ff.chunk.js",
     "static/media/CenturyGothic.ttf": "/fruteria-facturacion-inventario-frontend-react/static/media/CenturyGothic.b1b792bab1bff8f27ba7.ttf",
     "index.html": "/fruteria-facturacion-inventario-frontend-react/index.html",
     "main.1a5fa877.css.map": "/fruteria-facturacion-inventario-frontend-react/static/css/main.1a5fa877.css.map",
-    "main.c982cccf.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/main.c982cccf.js.map",
+    "main.b61d24c9.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/main.b61d24c9.js.map",
     "743.843f73fa.chunk.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/743.843f73fa.chunk.js.map",
     "831.83d9a9d1.chunk.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/831.83d9a9d1.chunk.js.map",
-    "125.6b4bfa2c.chunk.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/125.6b4bfa2c.chunk.js.map",
+    "125.4fb06796.chunk.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/125.4fb06796.chunk.js.map",
     "23.d5459c15.chunk.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/23.d5459c15.chunk.js.map",
-    "767.99731d69.chunk.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/767.99731d69.chunk.js.map",
+    "767.da3d53cb.chunk.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/767.da3d53cb.chunk.js.map",
     "842.480c17ef.chunk.css.map": "/fruteria-facturacion-inventario-frontend-react/static/css/842.480c17ef.chunk.css.map",
-    "842.e769562d.chunk.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/842.e769562d.chunk.js.map",
+    "842.3821f9e8.chunk.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/842.3821f9e8.chunk.js.map",
     "468.1b9fe083.chunk.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/468.1b9fe083.chunk.js.map",
     "471.180c0d0c.chunk.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/471.180c0d0c.chunk.js.map",
     "148.8dbf40ff.chunk.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/148.8dbf40ff.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1a5fa877.css",
-    "static/js/main.c982cccf.js"
+    "static/js/main.b61d24c9.js"
   ]
 }
