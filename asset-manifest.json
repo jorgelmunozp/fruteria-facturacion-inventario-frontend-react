@@ -1,14 +1,28 @@
 {
   "files": {
-    "main.css": "/fruteria-facturacion-inventario-frontend-react/static/css/main.b0286bec.css",
-    "main.js": "/fruteria-facturacion-inventario-frontend-react/static/js/main.f59b7a22.js",
+    "main.css": "/fruteria-facturacion-inventario-frontend-react/static/css/main.1a5fa877.css",
+    "main.js": "/fruteria-facturacion-inventario-frontend-react/static/js/main.b6f75f39.js",
+    "static/js/743.843f73fa.chunk.js": "/fruteria-facturacion-inventario-frontend-react/static/js/743.843f73fa.chunk.js",
+    "static/js/831.ab2b9974.chunk.js": "/fruteria-facturacion-inventario-frontend-react/static/js/831.ab2b9974.chunk.js",
+    "static/js/125.6b4bfa2c.chunk.js": "/fruteria-facturacion-inventario-frontend-react/static/js/125.6b4bfa2c.chunk.js",
+    "static/js/767.99731d69.chunk.js": "/fruteria-facturacion-inventario-frontend-react/static/js/767.99731d69.chunk.js",
+    "static/css/842.480c17ef.chunk.css": "/fruteria-facturacion-inventario-frontend-react/static/css/842.480c17ef.chunk.css",
+    "static/js/842.e769562d.chunk.js": "/fruteria-facturacion-inventario-frontend-react/static/js/842.e769562d.chunk.js",
+    "static/js/148.8dbf40ff.chunk.js": "/fruteria-facturacion-inventario-frontend-react/static/js/148.8dbf40ff.chunk.js",
     "static/media/CenturyGothic.ttf": "/fruteria-facturacion-inventario-frontend-react/static/media/CenturyGothic.b1b792bab1bff8f27ba7.ttf",
     "index.html": "/fruteria-facturacion-inventario-frontend-react/index.html",
-    "main.b0286bec.css.map": "/fruteria-facturacion-inventario-frontend-react/static/css/main.b0286bec.css.map",
-    "main.f59b7a22.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/main.f59b7a22.js.map"
+    "main.1a5fa877.css.map": "/fruteria-facturacion-inventario-frontend-react/static/css/main.1a5fa877.css.map",
+    "main.b6f75f39.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/main.b6f75f39.js.map",
+    "743.843f73fa.chunk.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/743.843f73fa.chunk.js.map",
+    "831.ab2b9974.chunk.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/831.ab2b9974.chunk.js.map",
+    "125.6b4bfa2c.chunk.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/125.6b4bfa2c.chunk.js.map",
+    "767.99731d69.chunk.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/767.99731d69.chunk.js.map",
+    "842.480c17ef.chunk.css.map": "/fruteria-facturacion-inventario-frontend-react/static/css/842.480c17ef.chunk.css.map",
+    "842.e769562d.chunk.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/842.e769562d.chunk.js.map",
+    "148.8dbf40ff.chunk.js.map": "/fruteria-facturacion-inventario-frontend-react/static/js/148.8dbf40ff.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b0286bec.css",
-    "static/js/main.f59b7a22.js"
+    "static/css/main.1a5fa877.css",
+    "static/js/main.b6f75f39.js"
   ]
 }
