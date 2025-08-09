@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { Suspense, lazy, useState } from 'react';
 import { getFetch } from '../../../helpers/getFetch.js';
 import { formatterPeso } from '../../../helpers/formatterPeso.js';
 import { formatterMiles } from '../../../helpers/formatterMiles.js';
 import { CiShoppingCart } from 'react-icons/ci';
 import { CarritoBar } from './CarritoBar.js';
 import carrito from '../../../carrito/carrito.json';
+
+const Modal = lazy(() => import('../../modal/Modal.js'));
+{/* <Suspense fallback={<></>}><Modal Icon={icons[this.type].Icon} iconColor={icons[this.type].iconColor} title={this.title} fontFamily={'century-gothic'} /></Suspense> */}
 
 const fecha = new Date();                                           //Lee la fecha actual del sistema
 const username = process.env.REACT_APP_USERNAME;

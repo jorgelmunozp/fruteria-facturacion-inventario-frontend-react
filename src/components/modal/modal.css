@@ -1,0 +1,151 @@
+.darkBackground {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    width: 100vw;
+    height: 200%;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+  }
+
+  .noScroll { overflow: hidden; }
+  
+  .modalContainer {
+    position: fixed;
+    border-radius: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10001;
+  }
+  
+  .modalBox {
+    width: 40vw;
+    min-width: 40vw;
+    min-height: 50vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    background: var(--white-color);
+    padding: 2em;
+    align-content: center;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+    animation: popup 0.25s ease;
+  }
+  @keyframes popup {
+    0% { transform: scale(0.7); }
+    45% { transform: scale(1.05); }
+    80% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes popout {
+    0% { transform: scale(1); }
+    45% { transform: scale(0.7); }
+    80% { transform: scale(0.3); }
+    100% { transform: scale(0); }
+  }
+  @media (max-width: 1200px) { .modalBox { min-width: 50vw; }}
+  @media (max-width: 992px) { .modalBox { min-width: 60vw; }}
+  @media (max-width: 768px) { .modalBox { width: 90vw; }}
+
+  .modalHeader {
+    background: var(--white-color);
+    overflow: hidden;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    z-index: 10;
+  }
+
+  .modalTitle {
+    margin: 0;
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  .modalContent {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #2c3e50;
+    text-align: center;
+  }
+  
+  .modalFooter { width: 100%; }
+    
+  .aceptBtn {
+    cursor: pointer;
+    font-weight: 500;
+    margin: .3125em;
+    padding: .625em 1.25em;
+    border-radius: 5px;
+    border: 1.25px solid var(--main-color);
+    color: var(--main-color);
+    background: var(--white-color);
+    transition: all 0.25s ease;
+  }
+  .aceptBtn:hover {
+    box-shadow: 0 10px 20px -10px var(--main-color);
+    transform: translateY(-5px);
+    background: var(--main-color);
+    color: var(--white-color);
+  }
+
+  .cancelBtn {
+    cursor: pointer;
+    font-weight: 500;
+    margin: .3125em;
+    padding: .625em 1.25em;
+    border-radius: 5px;
+    border: 1.25px solid rgb(221, 51, 51);
+    color: rgb(221, 51, 51);
+    background: var(--white-color);
+    transition: all 0.25s ease;
+  }
+  .cancelBtn:hover {
+    box-shadow: 0 10px 20px -10px rgba(255, 62, 78, 0.6);
+    transform: translateY(-5px);
+    background: #ff3e4e;
+    color: var(--white-color);
+  }
+
+  /** Botones vista Consultar QueryItems **/
+  .queryBtn {
+    cursor: pointer;
+    font-weight: 500;
+    padding: 0 12px;
+    border-radius: 15px;
+    border: none;
+    transition: all 0.25s ease;
+  }
+  .queryBtn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px -10px rgba(24, 90, 219, 0.6);
+  }
+
+/* Table */
+  .modalTable { border: lightgray 1px solid;}
+  .modalTable .row:nth-child(even){background-color:var(--white-color);}
+  .modalTable .row:nth-child(odd){background-color: #f1f1f1;}
+  .modalTable .row:nth-child(even):hover { background-color:var(--main-transparent-color); }
+  .modalTable .row:nth-child(odd):hover { background-color:var(--main-transparent-color); }
+  
+  .modalTableTitle  {
+    background-color:var(--main-color) !important;
+    color: var(--white-color);
+    font-size: 0.85em;
+    font-weight: normal;
+    text-align: center;
+    padding: 0.75vmin 1vmin;
+    border-bottom: 1px solid var(--dark-color);
+  }
+  .modalTableData {
+    color: var(--dark-color);
+    padding: 1vmin 5vmin;
+    text-wrap: nowrap;
+  }
+  
+  .modalInput {
+    background-color:var(--white-color);
+    height: 4vmin !important;
+    margin: 0;
+    width: 100%;
+  }
